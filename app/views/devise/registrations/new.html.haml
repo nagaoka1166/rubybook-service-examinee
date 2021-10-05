@@ -24,6 +24,11 @@
     = f.label :password_confirmation
     %br/
     = f.password_field :password_confirmation, autocomplete: "new-password"
+  .field
+    = f.label :学生
+    = f.radio_button :category, "学生"
+    = f.label :研究者
+    = f.radio_button :category, "研究者"
   .actions
     = f.submit "Sign up"
 = render "devise/shared/links"

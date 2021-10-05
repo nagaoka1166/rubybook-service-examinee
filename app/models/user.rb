@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  #アソシエーション
+  has_one :researcher
+  attr_accessor :category
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   #　学部のセレクトボックス
