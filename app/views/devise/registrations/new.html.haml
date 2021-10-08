@@ -6,9 +6,14 @@
     %br/
     = f.text_field :name, autofocus: true, autocomplete: "name"
   .field
+    = f.label :男性
+    = f.radio_button :category, "男性"
+    = f.label :女性
+    = f.radio_button :category, "女性"
+  .field
     = f.label :faculty
     %br/
-    = f.select :faculty, User.facultys.keys, {}, {class: 'hoge'}
+    = f.select :faculty, User.facultys.keys.map {|k| [I18n.t("enums.user.facultys.#{k}"), k]}
   .field
     = f.label :email
     %br/
@@ -25,10 +30,15 @@
     %br/
     = f.password_field :password_confirmation, autocomplete: "new-password"
   .field
+    %br/
     = f.label :学生
     = f.radio_button :category, "学生"
     = f.label :研究者
     = f.radio_button :category, "研究者"
+  .field
+    = f.label :grade
+    %br/
+    = f.select :grade, Student.grades.keys.map {|k| [I18n.t("enums.student.grades.#{k}"), k]}
   .actions
     = f.submit "Sign up"
 = render "devise/shared/links"

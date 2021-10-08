@@ -1,19 +1,22 @@
 class User < ApplicationRecord
   #アソシエーション
   has_one :researcher
+  has_one :student
   attr_accessor :category
+  accepts_nested_attributes_for :student
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   #　学部のセレクトボックス
   enum facultys:{
-          "---":0,
-          法学部:1,経済学部:2,経営学部:3,産業社会学部:4,政策科学部:5,文学部:6,映像学部:7,
-          総合心理学部:8,理工学部:9,グローバル教養学部:10,食マネジメント学部:11,情報理工学部:12,生命科学部:13,薬学部:14,
-          スポーツ健康科学部:15,法学研究科:16,経済学研究科:17,経営学研究科:18,社会学研究科:19,国際関係研究科:20,
-          政策科学研究科:21,文学研究科:22,映像研究科:23,理工学研究科:24,
-          情報理工研究科:25,生命科学研究科:26,薬学研究科:27,スポーツ健康科学研究科:28,応用人間科学研究科:29,先端総合学術研究科:30,
-          言語教育情報研究科:31,法務研究科:32,テクノロジー・マネジメント研究科:33,経営管理研究科:34,公務研究科:35,
-          教職研究科:36,人間科学研究科:37,食マネジメント研究科:38
+          default:0,
+          law:1,econmic:2,manegement:3,social:4,policy:5,letters:6,movie:7,
+          psychology:8,Science_Engineering:9,Liberal:10,food:11,information_science:12, life_sciences:13,Pharmaceutical:14,
+          sports:15,graduate_law:16,graduate_economic:17,graduate_manegement:18,graduate_social:19,graduata_liberal:20,
+          graduate_policy:21,graduate_letters:22,graduate_movie:23,graduate_Science_Engineering:24,
+          graduate_infomation_engineering:25,graduate_life_science:26,graduate_Pharmaceutical:27,graduate_sports:28,graduate_Applied_human_science:29,graduate_advance_human:30,
+          graduate_language_education:31,graduate_legal:32,graduate_technology_manegment:33,graduate_business_manegement:34,graduate_public:35,
+          graduate_education:36,graduate_human_science:37,graduate_food:38
         }
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable
