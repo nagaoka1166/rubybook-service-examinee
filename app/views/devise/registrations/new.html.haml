@@ -13,7 +13,7 @@
   .field
     = f.label :faculty
     %br/
-    = f.select :faculty, User.facultys.keys.map {|k| [I18n.t("enums.user.facultys.#{k}"), k]}
+    = f.select :faculty, User.faculty.keys.map {|k| [I18n.t("enums.user.faculty.#{k}"), k]}
   .field
     = f.label :email
     %br/
@@ -35,10 +35,12 @@
     = f.radio_button :category, "学生"
     = f.label :研究者
     = f.radio_button :category, "研究者"
-  .field
-    = f.label :grade
-    %br/
-    = f.select :grade, Student.grades.keys.map {|k| [I18n.t("enums.student.grades.#{k}"), k]}
+  = fields_for :student do |s|
+    .field
+      = s.hidden_field :user_id
+      = s.label :grade
+      %br/
+      = s.select :grade, Student.grade.keys.map {|k| [I18n.t("enums.student.grade.#{k}"), k]}
   .actions
-    = f.submit "Sign up"
+  = f.submit "Sign up"
 = render "devise/shared/links"

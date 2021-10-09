@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  caution: MyString
+  restriction: MyString
+  project: 
+  rabo: MyString
+  testing_field: MyString
+  experment_period: 2021-10-08 19:52:41
+  meet_time: MyString
+  : MyString
+  item: MyString
+  count: 
+  is_active: 
+  recruitment_period: 2021-10-08 19:52:41
+
+two:
+  title: MyString
+  description: MyText
+  caution: MyString
+  restriction: MyString
+  project: 
+  rabo: MyString
+  testing_field: MyString
+  experment_period: 2021-10-08 19:52:41
+  meet_time: MyString
+  : MyString
+  item: MyString
+  count: 
+  is_active: 
+  recruitment_period: 2021-10-08 19:52:41

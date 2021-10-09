@@ -27,7 +27,7 @@ ja:
       updated_at: 更新日時
   enums:
     user:
-      facultys:
+      faculties:
         default: "--"
         law: "法学部"
         econmic: "経済学部"
@@ -68,14 +68,18 @@ ja:
         graduate_human_science: "人間科学研究科"
         graduate_food: "食事マネジメント"
     student:
-      grade:
+      grades:
         default: "---"
-        one: "一回生" #firstは定義できなかった。
+        one: "1回生"
         two: "2回生"
         three: "3回生"
         four: "4回生"
         five: "5回生"
         six: "6回生"
+        M1: "M1"
+        M2: "M2"
+        M3: "M3"
+        M4: "M4"
   date:
     abbr_day_names:
     - 日

@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 #   registrations: 'users/registrations',
 #   sessions     : 'users/sessions'
 # }
-  devise_for :users
+# deviceのregistrations宛にリクエストがきた場合に、代わりにuserscontrollerのregistrationを動かす
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations'} do
+      match "users/:user_id/sign_up" => "registrations#new", :as => :new__user_registration
+  end
   resources :users
   resources :pages
   # get 'pages/index'

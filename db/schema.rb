@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_05_102127) do
+ActiveRecord::Schema.define(version: 2021_10_08_105241) do
+
+  create_table "posts", charset: "utf8mb4", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "caution"
+    t.string "restriction"
+    t.integer "project"
+    t.string "rabo"
+    t.string "testing_field"
+    t.datetime "experment_period"
+    t.string "meet_time"
+    t.string "reward"
+    t.string "item"
+    t.integer "count"
+    t.integer "is_active"
+    t.datetime "recruitment_period"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "researchers", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id"

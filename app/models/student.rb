@@ -1,8 +1,8 @@
 class Student < ApplicationRecord
     belongs_to :user
-    enum grades:{
+    enum grade:{
             default:0,
             one:1,two:2,three:3,four:4,five:5,six:6,
-            M２:8,M３:9,M４:10
+            M1:7,M2:8,M3:9,M4:10
           }
 end

@@ -2,13 +2,11 @@ class User < ApplicationRecord
   #アソシエーション
   has_one :researcher
   has_one :student
-  attr_accessor :category
   accepts_nested_attributes_for :student
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   #　学部のセレクトボックス
-  enum facultys:{
+  enum faculty:{
           default:0,
           law:1,econmic:2,manegement:3,social:4,policy:5,letters:6,movie:7,
           psychology:8,Science_Engineering:9,Liberal:10,food:11,information_science:12, life_sciences:13,Pharmaceutical:14,
@@ -18,6 +16,8 @@ class User < ApplicationRecord
           graduate_language_education:31,graduate_legal:32,graduate_technology_manegment:33,graduate_business_manegement:34,graduate_public:35,
           graduate_education:36,graduate_human_science:37,graduate_food:38
         }
+
+attr_accessor :category
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable
 end

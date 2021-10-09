@@ -7,16 +7,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     # super
-    # @user = User.new
-    # @user.build_student
+    @user = User.new #ココのコメントアウト外すとform_forのエラーがなくなる。
+    @user.build_student
   end
 
   # POST /resource
   def create
-  #   super
-  # @user = User.new(user_params)
-  # @user.save
+    super
+  user = User.new(configure_sign_up_params)
+  user.save
   # redirect_to users_path(@user)
+  # Student.create(grade:1, age:19)
   end
 
   # GET /resource/edit
@@ -43,12 +44,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :faculty, :email, :encrypted_password, student_attributes: [:age,
+    :sex,:grade,:user_id]])
+  end
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
@@ -58,6 +61,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)
+  # end
+
+  protected  #メソッドのスコープを小さくするもの
+  # def configure_permitted_parameters
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [student_attributes: [:age,:sex,:grade,:user_id]])
   # end
 
   # The path used after sign up for inactive accounts.
