@@ -10,8 +10,8 @@ Rails.application.routes.draw do
       match "users/:user_id/sign_up" => "registrations#new", :as => :new__user_registration
   end
   resources :users
-  resources :pages
-  # get 'pages/index'
-  # get 'pages/show'
+  resources :posts
+  resources :stundents
+  resources :researchers
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

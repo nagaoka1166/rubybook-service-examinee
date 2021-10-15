@@ -31,14 +31,11 @@
     = f.password_field :password_confirmation, autocomplete: "new-password"
   .field
     %br/
-    = f.label :学生
-    = f.radio_button :category, "学生"
-    = f.label :研究者
-    = f.radio_button :category, "研究者"
+    = f.label :content_type, "学生", value: 1
+    = f.radio_button :content_type, '1'
+    = f.label :content_type, "研究者", value: 2
+    = f.radio_button :content_type, '2'
   = f.fields_for :student do |s|
-    .field
-      = s.hidden_field :user_id
-      = s.label :birthday
     .field
       = s.hidden_field :user_id
       = s.label :grade
@@ -47,3 +44,4 @@
   .actions
   = f.submit "Sign up"
 = render "devise/shared/links"
+

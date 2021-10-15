@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     # end
     protected  #メソッドのスコープを小さくするもの
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :faculty, :passward, :password_confirmation, [student_attributes: [:age,:sex,:grade,:user_id]]])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :faculty, :passward, :password_confirmation, :content_type, [student_attributes: [:age,:sex,:grade,:user_id]]])
     end
     # def after_sign_in_path_for(resource)
     #     users_path

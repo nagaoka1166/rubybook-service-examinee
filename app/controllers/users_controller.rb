@@ -16,4 +16,23 @@ class UsersController < ApplicationController
 #         params.require(:user).permit(:name, :faculty, :email, :encrypted_password, student_attributes: [:age,
 #         :sex,:grade,:user_id])
 #     end
+
+    def show
+    end
+  def after_sign_up_path_for(resource)
+    if  sign_up_params[:content_type] == 1
+        students_path(resource)
+      puts 1
+    elsif sign_up_params[:content_type] == 2
+        researchers_path(resource)
+      puts 2
+    end
+  end
+private
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :faculty, :email, :encrypted_password, :content_type, student_attributes: [:age,
+    :sex, :grade, :user_id]])
+  end
+
+
 end

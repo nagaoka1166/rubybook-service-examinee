@@ -14,10 +14,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-  user = User.new(configure_sign_up_params)
+  user = User.new(sign_up_params)
   user.save
-  # redirect_to users_path(@user)
-  # Student.create(grade:1, age:19)
+    # if  sign_up_params[:content_type] == '1'
+    #     student_path  and return
+    #   elsif sign_up_params[:content_type] == '2'
+    #     researchers_path(resource)
+    # end
   end
 
   # GET /resource/edit
@@ -48,8 +51,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :faculty, :email, :encrypted_password, student_attributes: [:age,
-    :sex,:grade,:user_id]])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :faculty, :email, :encrypted_password, :content_type, student_attributes: [:age,
+    :sex, :grade, :user_id]])
   end
 
 
@@ -59,9 +62,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    if  sign_up_params[:content_type] == 1
+        students_path(resource) and return
+      puts 1
+    elsif sign_up_params[:content_type] == 2
+        researchers_path(resource)
+      puts 2
+    end
+  end
 
   protected  #メソッドのスコープを小さくするもの
   # def configure_permitted_parameters
@@ -70,6 +79,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
-    super(resource)
+    
+  #   if  sign_up_params[:content_type] == '1'
+  #     redirect_to student_path
+  # elsif sign_up_params[:content_type] == '2'
+  #     redirect_to researchers_path
   end
+  # end
 end

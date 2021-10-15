@@ -1,0 +1,30 @@
+%h2 新規投稿ページ
+/ 　integer型は実装していない
+= link_to  '一覧', posts_path, class: 'nav-link'
+
+= form_with model: @post, local: true do |f|
+  .form-group
+    = f.label :title
+    %br/
+    = f.text_field :title, autofocus: true, autocomplete: "title"
+  .form-group
+    = f.label :description
+    %br/
+    = f.text_area :description, autofocus: true, autocomplete: "description"
+  .form-group
+    = f.label :caution
+    %br/
+    = f.text_field :caution, autofocus: true, autocomplete: "caution"
+  .form-group
+    = f.label :testing_field
+    %br/
+    = f.text_field :testing_field, autofocus: true, autocomplete: "testing_field"
+  .form-group
+    = f.label :item
+    %br/
+    = f.text_field :item, autofocus: true, autocomplete: "item"
+  .form-group
+    = f.label :reward
+    %br/
+    = f.text_field :reward, autofocus: true, autocomplete: "reward"
+    = f.submit
