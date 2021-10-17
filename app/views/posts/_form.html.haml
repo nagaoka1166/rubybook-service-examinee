@@ -1,0 +1,26 @@
+= form_with model: post, local: true do |f|
+  .form-group
+    = f.label :title
+    %br/
+    = f.text_field :title, raw: 3, class:'form-control', id: 'post_title'
+  .form-group
+    = f.label :description
+    %br/
+    = f.text_area :description, raw: 5, class:'form-control', id: 'post_description'
+  .form-group
+    = f.label :caution
+    %br/
+    = f.text_field :caution,  raw: 3, class:'form-control', id: 'post_caution'
+  .form-group
+    = f.label :testing_field
+    %br/
+    = f.text_field :testing_field, raw: 3, class:'form-control', id: 'post_testing_field'
+  .form-group
+    = f.label :item
+    %br/
+    = f.text_field :item, raw: 3, class:'form-control', id: 'post_item'
+  .form-group
+    = f.label :reward
+    %br/
+    = f.text_field :reward, raw: 3, class:'form-control', id: 'post_reward'
+    = f.submit

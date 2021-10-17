@@ -63,12 +63,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    if  sign_up_params[:content_type] == 1
-        students_path(resource) and return
-      puts 1
-    elsif sign_up_params[:content_type] == 2
+    if  sign_up_params[:content_type].to_i == 1
+        students_path(resource)
+    elsif sign_up_params[:content_type].to_i == 2
         researchers_path(resource)
-      puts 2
     end
   end
 

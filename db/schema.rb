@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_15_100742) do
+ActiveRecord::Schema.define(version: 2021_10_17_083033) do
 
   create_table "posts", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2021_10_15_100742) do
     t.datetime "recruitment_period"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "researcher_id", null: false
+    t.index ["researcher_id"], name: "index_posts_on_researcher_id"
   end
 
   create_table "researchers", charset: "utf8mb4", force: :cascade do |t|
