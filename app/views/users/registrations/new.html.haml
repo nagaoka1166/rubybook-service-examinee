@@ -6,11 +6,6 @@
     %br/
     = f.text_field :name, autofocus: true, autocomplete: "name"
   .field
-    = f.label :男性
-    = f.radio_button :category, "男性"
-    = f.label :女性
-    = f.radio_button :category, "女性"
-  .field
     = f.label :faculty
     %br/
     = f.select :faculty, User.faculties.keys.map {|k| [I18n.t("enums.user.faculties.#{k}"), k]}
@@ -38,9 +33,20 @@
   = f.fields_for :student do |s|
     .field
       = s.hidden_field :user_id
+      = s.label :sex, "男性", value: 1
+      = s.radio_button :sex, '1'
+      = s.label :sex, "女性", value: 2
+      = s.radio_button :sex, '2'
+    .field
+      = s.hidden_field :user_id
       = s.label :grade
       %br/
       = s.select :grade, Student.grades.keys.map {|k| [I18n.t("enums.student.grades.#{k}"), k]}
+    .field
+      = s.hidden_field :user_id
+      = s.label :birthday
+      %br/
+      = s.date_select :birthday, use_month_numbers: true,start_year: 1930,end_year: (Time.now.year - 18), default: Date.new(2000, 1, 1)
   .actions
   = f.submit "Sign up"
 = render "devise/shared/links"

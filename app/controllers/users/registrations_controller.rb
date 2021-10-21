@@ -16,11 +16,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   user = User.new(sign_up_params)
   user.save
-    # if  sign_up_params[:content_type] == '1'
-    #     student_path  and return
-    #   elsif sign_up_params[:content_type] == '2'
-    #     researchers_path(resource)
-    # end
   end
 
   # GET /resource/edit
@@ -66,7 +61,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if  sign_up_params[:content_type].to_i == 1
         students_path(resource)
     elsif sign_up_params[:content_type].to_i == 2
-        researchers_path(resource)
+        # researchers_path(resource)
+        posts_path(resource)
     end
   end
 
