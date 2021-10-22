@@ -39,7 +39,7 @@ class PostsController < ApplicationController
     end
     private
     def post_params
-        params.require(:post).permit(:title, :description, :caution, :testing_field, :reward, :item, :created_at)
+        params.require(:post).permit(:title, :description, :caution, :testing_field, :reward, :item, :created_at).merge(researcher_id: current_user.id)
     end
 
     def  researcher_confirm

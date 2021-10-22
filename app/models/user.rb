@@ -2,7 +2,7 @@ class User < ApplicationRecord
   #アソシエーション
   has_one :researcher
   has_one :student
-  has_many :post
+  has_many :posts
   accepts_nested_attributes_for :student
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
