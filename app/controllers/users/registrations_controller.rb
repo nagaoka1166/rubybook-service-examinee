@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
+  before_action :authenticate_user!
 
   # GET /resource/sign_up
   def new
@@ -42,8 +43,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  protected
+  
+  def after_sign_in_path_for(resource)
+    posts_path(resource) # ログイン後に遷移するpathを設定
+  end
 
+  def after_sign_out_path_for(resource)
+    new_user_session_path # ログアウト後に遷移するpathを設定
+  end
+  protected
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :faculty, :email, :encrypted_password, :content_type, student_attributes: [:age,
@@ -59,21 +67,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up.
   def after_sign_up_path_for(resource)
     if  sign_up_params[:content_type].to_i == 1
-        students_path(resource)
+      posts_path(resource)
     elsif sign_up_params[:content_type].to_i == 2
         # researchers_path(resource)
         posts_path(resource)
     end
   end
-
-  protected  #メソッドのスコープを小さくするもの
+  #メソッドのスコープを小さくするもの
   # def configure_permitted_parameters
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [student_attributes: [:age,:sex,:grade,:user_id]])
   # end
 
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
-    
   #   if  sign_up_params[:content_type] == '1'
   #     redirect_to student_path
   # elsif sign_up_params[:content_type] == '2'

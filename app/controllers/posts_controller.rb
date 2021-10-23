@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
     before_action :researcher_confirm, only: [:new, :create, :edit, :destroy]
+    before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
     def index
         @posts = Post.all
     end
@@ -16,6 +17,7 @@ class PostsController < ApplicationController
         else
             render :new
         end
+
     end
 
     def show
@@ -24,12 +26,21 @@ class PostsController < ApplicationController
 
     def edit
         @post = Post.find(params[:id])
+        if @post.user == current_user
+            render "edit"
+        else
+            redirect_to posts_path
+        end
     end
 
     def update
         post = Post.find(params[:id])
-        post.update!(post_params)
-        redirect_to posts_url, notice: "タスク「#{post.title}」を更新しました。"
+        if @post.user == current_user
+            post.update!(post_params)
+            redirect_to posts_url, notice: "タスク「#{post.title}」を更新しました。"
+        else
+            redirect_to posts_path
+        end
     end
 
     def destroy
@@ -39,7 +50,7 @@ class PostsController < ApplicationController
     end
     private
     def post_params
-        params.require(:post).permit(:title, :description, :caution, :testing_field, :reward, :item, :created_at).merge(researcher_id: current_user.id)
+        params.require(:post).permit(:title, :description, :caution, :testing_field, :reward, :item, :created_at)
     end
 
     def  researcher_confirm

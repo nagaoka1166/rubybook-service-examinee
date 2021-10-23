@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_22_120835) do
+ActiveRecord::Schema.define(version: 2021_10_23_062039) do
 
   create_table "posts", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
@@ -30,10 +30,6 @@ ActiveRecord::Schema.define(version: 2021_10_22_120835) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
-    t.bigint "researcher_id_id"
-    t.bigint "researcher_id", null: false
-    t.index ["researcher_id"], name: "index_posts_on_researcher_id"
-    t.index ["researcher_id_id"], name: "index_posts_on_researcher_id_id"
   end
 
   create_table "researchers", charset: "utf8mb4", force: :cascade do |t|
@@ -69,5 +65,4 @@ ActiveRecord::Schema.define(version: 2021_10_22_120835) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "posts", "researchers"
 end
