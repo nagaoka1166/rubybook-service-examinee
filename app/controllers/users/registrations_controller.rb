@@ -4,7 +4,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
   before_action :authenticate_user!
-
   # GET /resource/sign_up
   def new
     # super
@@ -42,8 +41,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-
-  
   def after_sign_in_path_for(resource)
     posts_path(resource) # ログイン後に遷移するpathを設定
   end
@@ -51,12 +48,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_out_path_for(resource)
     new_user_session_path # ログアウト後に遷移するpathを設定
   end
+  
+  def birthday_join
+    # パラメータ取得
+    date = params[:user][:birthday]
+    # ブランク時のエラー回避のため、ブランクだったら何もしない
+    # if date["birthday(1i)"].empty? && date["birthday(2i)"].empty? && date["birthday(3i)"].empty?
+    #   return
+    # end
+    # 年月日別々できたものを結合して新しいDate型変数を作って返す
+    # Date.new date["birthday(1i)"].to_i,date["birthday(2i)"].to_i,date["birthday(3i)"].to_i
+  end
   protected
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :faculty, :email, :encrypted_password, :content_type, student_attributes: [:age,
-    :sex, :grade, :user_id]])
+    :sex, :grade, :birthday, :user_id]])
   end
+
+  # def student_params
+  #   params
+  #     .require(:student)
+  #     .permit(Form::Product::REGISTRABLE_ATTRIBUTES)
+  # end
 
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -79,11 +93,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up for inactive accounts.
-  def after_inactive_sign_up_path_for(resource)
+  # def after_inactive_sign_up_path_for(resource)
   #   if  sign_up_params[:content_type] == '1'
   #     redirect_to student_path
   # elsif sign_up_params[:content_type] == '2'
   #     redirect_to researchers_path
-  end
+  # end
   # end
 end
