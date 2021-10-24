@@ -3,6 +3,9 @@
 = link_to  '新規登録', new_post_path, class: 'nav-link' if current_user.content_type == 2
 
 .mb-3
+    = paginate @posts
+    = page_entries_info @posts
+
 %table.table.table-hover
     %thead.thead-default
         %tr

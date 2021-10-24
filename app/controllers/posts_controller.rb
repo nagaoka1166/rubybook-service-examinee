@@ -1,9 +1,8 @@
 class PostsController < ApplicationController
     before_action :researcher_confirm, only: [:new, :create, :edit, :destroy]
     before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
-    include ActiveRecord::AttributeAssignment
     def index
-        @posts = Post.all
+        @posts = Post.all.page(params[:page]).per(10)
     end
 
     def new
@@ -50,7 +49,9 @@ class PostsController < ApplicationController
         redirect_to posts_url, notice: "タスク「#{post.title}」を削除しました。"
     end
     private
-
+    def post_params
+        params.require(:post).permit(:title, :description, :caution, :testing_field, :reward, :item, :created_at)
+    end
     def  researcher_confirm
         if current_user.content_type.to_i != 2
             redirect_to posts_path(current_user)
