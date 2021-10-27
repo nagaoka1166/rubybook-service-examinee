@@ -2,7 +2,9 @@ class PostsController < ApplicationController
     before_action :researcher_confirm, only: [:new, :create, :edit, :destroy]
     before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
     def index
-        @posts = Post.all.page(params[:page]).per(10)
+        @q =  Post.all.ransack(params[:q])
+        @posts = @q.result(distinct: true).page(params[:page]).per(10)
+        #@posts = Post.all.page(params[:page]).per(10)
     end
 
     def new
@@ -34,10 +36,10 @@ class PostsController < ApplicationController
     end
 
     def update
-        post = Post.find(params[:id])
+        @post = Post.find(params[:id])
         if @post.user == current_user
-            post.update!(post_params)
-            redirect_to posts_url, notice: "タスク「#{post.title}」を更新しました。"
+            @post.update!(post_params)
+            redirect_to posts_url, notice: "タスク「#{@post.title}」を更新しました。"
         else
             redirect_to posts_path
         end
@@ -45,12 +47,16 @@ class PostsController < ApplicationController
 
     def destroy
         post = Post.find(params[:id])
+        if post.user == current_user
         post.destroy
         redirect_to posts_url, notice: "タスク「#{post.title}」を削除しました。"
+        else
+            redirect_to posts_path
+        end
     end
     private
     def post_params
-        params.require(:post).permit(:title, :description, :caution, :testing_field, :reward, :item, :created_at)
+        params.require(:post).permit(:title, :description, :caution, :testing_field, :reward, :item, :created_at, :id)
     end
     def  researcher_confirm
         if current_user.content_type.to_i != 2
