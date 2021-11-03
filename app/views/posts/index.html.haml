@@ -29,14 +29,19 @@
             %th
     %tbody
         - @posts.each do |post|
-            %tr
-                %td= link_to post.title, post
-                %td= post.created_at
-                %th
-                %th
-            - if post.user_id == current_user.id
-                %td= link_to '編集', edit_post_path(post), class: 'btn btn-primary mr-3'
-                %td= link_to '削除', post, method: :delete, data: { confirm: "ユーザ「#{post.title}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
-            - else
-                %td
-                %td
+            / %tr
+            /     %td= link_to post.title, post
+            /     %td= post.created_at
+            /     %th
+            /     %th
+            / - if post.user_id == current_user.id
+            /     %td= link_to '編集', edit_post_path(post), class: 'btn btn-primary mr-3'
+            /     %td= link_to '削除', post, method: :delete, data: { confirm: "ユーザ「#{post.title}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
+            / - else
+            /     %td
+            /     %td
+            .card
+                .card-body
+                    = link_to "#{post.title}", post
+                    %p #{post.description}
+                    %button.btn.btn-primary{type: "button"} お気に入り
