@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations'} do
       match "users/:user_id/sign_up" => "registrations#new", :as => :new__user_registration
   end
-  resources :entries, only: [:index, :create]
+  resources :entries, only: [:new, :create]
   resources :users
   resources :posts
   resources :stundents

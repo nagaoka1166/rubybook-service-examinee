@@ -10,32 +10,32 @@
       .navbar
         %h1 応募フォーム
       %form.form-horizontal
-= form_with url: entries_path, local: true do |f|
+= form_with model: @entry do |f|
   .form-group
     = f.label :お名前, class:'col-sm-2.control-label'
     %span.label.label-danger 必須
   .col-sm-10
-    %input.f.form-control{name: "SecondName", placeholder: "姓名", required: "", type: "text"}/
+    = f.input
   %br
   .form-group
   %br
     = f.label :電話番号, class:'col-sm-2.control-label'
     %span.label.label-danger 必須
   .col-sm-10
-    %input.f.form-control{name: "tel", placeholder: "電話番号", required: "", type: "tel"}/
+    = f.input
   %br/
   .form-group
   %br
     = f.label :メールアドレス, class:'col-sm-2.control-label'
     %span.label.label-danger 必須
   .col-sm-10
-    %input.form-control{name: "email", placeholder: "メールアドレス", required: "", type: "email"}/
+    = f.input
   %br/
   .form-group
-    = f.label :年齢, class :'col-sm-2.control-label'
+    = f.label :年齢, class:'col-sm-2.control-label'
     %span.label.label-danger 必須
   .col-sm-10
-    f.select{name: "age"}
+    = f.select, name: "age"
       %option{selected: "selected"} --
       %option{value: "18"} 18
       %option{value: "19"} 19
@@ -70,7 +70,7 @@
       %option{value: "48"} 48
       %option{value: "49"} 49
       %option{value: "50"} 50~
-      %label 歳
+    %label 歳
   .form-group
     .col-sm-offset-2.col-sm-10
-      f.button.btn.btn-default{type: "submit"} 送信する
+      = f.submit '送信', class: 'btn-default'
