@@ -14,19 +14,21 @@
       %p メールアドレス: #{current_user.email}
 = form_with model: @entry do |f|
   .form-group
+    = f.hidden_field :post_id, value:params[:post_id]
+  .form-group
   %br/
   .form-group
   %br
     = f.label :電話番号, class:'col-sm-2.control-label'
     %span.label.label-danger 必須
   .col-sm-10
-    = f.text_field :phone, class: 'form-control', name: 'phone', placeholder: '例: 090-XXX-XXX', required: '', type: 'text'
+    = f.text_field :phone, class: 'form-control', placeholder: '例: 090-XXX-XXX', required: '', type: 'text'
   .form-group
   %br
     = f.label :年齢, class:'col-sm-2.control-label'
     %span.label.label-danger 必須
   .col-sm-10
-    = f.number_field :age, class: 'form-control', name: 'age', required: ''
+    = f.number_field :age, class: 'form-control', required: ''
   %br
   .form-group
   %br

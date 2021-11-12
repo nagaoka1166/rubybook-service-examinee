@@ -10,7 +10,7 @@ class EntriesController < ApplicationController
         # @entry = current_user.Entry.new(entries_params)
 
         if @entry.save
-            ContactMailer.entries_email(@entry).delivery_now
+            ContactMailer.entries_email(@entry, @post).delivery_now
             redirect_to @post, notice: "「@post.name」への参加手続きが完了いたしました"
         else
             render :new
@@ -18,6 +18,6 @@ class EntriesController < ApplicationController
     end
     private
     def entries_params
-        params.permit(:age, :phone, :entry_id)
+        params.require(:entry).permit(:age, :phone, :entry_id, :post_id)
     end
 end

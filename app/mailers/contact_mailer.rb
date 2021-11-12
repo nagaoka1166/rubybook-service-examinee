@@ -1,15 +1,15 @@
 class ContactMailer < ApplicationMailer
     # default from: "送信元のメールアドレス"
 
-  def entries_email(user)
+  def entries_email(user, post)
       @user = user
-      @entry = Entry.find 49
-      mail to: @user,
-        subject: "ユーザー登録が完了しました"
+      @post = params[:post_id]
+      mail to: user.email,
+      subject: '【サイト名】 お問い合わせありがとうございます'
   end
 
   private
-    def params
-        params.permit(:age, :phone, :id)
-    end
+  def params
+    params.require(:post).permit(:post_id)
+  end
 end
