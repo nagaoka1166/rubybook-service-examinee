@@ -5,28 +5,12 @@ class User < ApplicationRecord
   has_many :posts
   has_many :entries
   has_many :likes, dependent: :destroy
-  has_many :like_posts, through: :likes, source: :post
   accepts_nested_attributes_for :student
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  def own?(object)
-    id == object.user_id
-  end
 
   def liked_by?(post_id)
     likes.where(post_id: post_id).exists?
-  end
-
-  def like(post)
-    likes.find_or_create_by(post: post)
-  end
-
-  def like?(post)
-    like_posts.include?(post)
-  end
-
-  def unlike(post)
-    like_posts.delete(post)
   end
   #　学部のセレクトボックス
   enum faculty:{
