@@ -29,17 +29,6 @@
             %th
     %tbody
         - @posts.each do |post|
-            / %tr
-            /     %td= link_to post.title, post
-            /     %td= post.created_at
-            /     %th
-            /     %th
-            / - if post.user_id == current_user.id
-            /     %td= link_to '編集', edit_post_path(post), class: 'btn btn-primary mr-3'
-            /     %td= link_to '削除', post, method: :delete, data: { confirm: "ユーザ「#{post.title}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
-            / - else
-            /     %td
-            /     %td
             .card
                 .card-body
                     = link_to "#{post.title}", post
@@ -48,3 +37,7 @@
                         %p 募集中
                     -else
                         %p 募集停止
+                    - if current_user.liked_by?(post.id)
+                        = link_to 'いいねを外す', destroy_like_path(post), method: :DELETE
+                    - else
+                        = link_to 'いいね', create_like_path(post), method: :POST
