@@ -18,6 +18,8 @@ class UsersController < ApplicationController
 #     end
 
     def show
+        @user = User.find(params[:id])
+        @posts = @user.posts
     end
   def after_sign_up_path_for(resource)
     if  sign_up_params[:content_type] == 1

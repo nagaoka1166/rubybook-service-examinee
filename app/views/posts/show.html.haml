@@ -24,13 +24,24 @@
         %th= Post.human_attribute_name(:reward)
         %td= @post.reward
     %tr
+        %th= Post.human_attribute_name(:experment_period)
+        %td= @post.experment_period
+    %tr
+        %th= Post.human_attribute_name(:recruitment_period)
+        %td= @post.recruitment_period
+    %tr
+        %th= Post.human_attribute_name(:募集状況)
+        %td= @post.is_active
+    %tr
         %th= Post.human_attribute_name(:created_at)
         %td= @post.created_at
     %tr
         %th= Post.human_attribute_name(:updated_at)
         %td= @post.updated_at
 - if @post.user_id == current_user.id
+
     = link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'
     = link_to '削除', @post, method: :delete, data: { confirm: "ユーザ「#{@post.title}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
 
-= link_to '応募する', new_entry_path(post_id: @post.id), class: '.btn.btn-c'
+- if @post.is_active == true && @post.recruitment_period > Date.today
+    = link_to '応募する', new_entry_path(post_id: @post.id), class: '.btn.btn-c'

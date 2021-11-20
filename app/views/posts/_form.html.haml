@@ -20,7 +20,22 @@
     %br/
     = f.text_field :item, raw: 3, class:'form-control', id: 'post_item'
   .form-group
+    = f.label :experment_period, "実験期間"
+    %br/
+    = f.text_field :experment_period, raw: 3, class:'form-control', id: 'post_title'
+  .form-group
+    = f.label :recruitment_period, "募集期間"
+    %br/
+    = f.date_field :recruitment_period, raw: 3, class:'form-control', id: 'post_title'
+  .form-group
     = f.label :reward
     %br/
     = f.text_field :reward, raw: 3, class:'form-control', id: 'post_reward'
+  .form-group
+    = f.radio_button :is_active, :true
+    = f.label :is_active, "募集中"
+    %br/
+    = f.radio_button :is_active, :false
+    = f.label :is_active, "募集停止"
+    %br/
     = f.submit

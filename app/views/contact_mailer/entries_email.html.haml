@@ -2,26 +2,49 @@
 = @user.name
 様
 \===============================
+%br/
 
-@post.titleの応募が完了いたしました。
+\■■■
+= @post.title
+について
+\■■■
+%br/
 
-■■■　@post.titleについて　■■■
+\集合場所:
+= @post.testing_field
+\
+%br/
 
-集合場所: @post.text_field
 
-注意事項: @post.caution
+\注意事項:
+= @post.caution
+\
+%br/
 
-持ち物: @post.item
-
-謝礼: @post.reward
+\
+持ち物:
+= @post.item
+\
+%br/
+\
+謝礼:
+= @post.reward
+\
+%br/
 
 当日の実験にスムーズに参加できるようにご準備ください。
-
+%br/
 
 ＜本件に関するお問い合わせ先＞
+%br/
 本実験についてお聞きしたいことがある場合下記のメールアドレスにご連絡お願いいたします。
-
+%br/
 万が一の場合を除き応募後の応募辞退は認めておりません。
+%br/
 万が一の場合はなるべく早い段階で下記のメールアドレスにて募集者にご連絡お願いいたします。
 
-%a @post.user.email
+%br/
+\
+%a
+= @researcher.email
+\

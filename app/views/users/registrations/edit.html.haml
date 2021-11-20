@@ -10,6 +10,13 @@
     %div
       Currently waiting confirmation for: #{resource.unconfirmed_email}
   .field
+    = f.label :faculty
+    %br/
+    = f.select :faculty, User.faculties.keys.map {|k| [I18n.t("enums.user.faculties.#{k}"), k]}
+  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+    %div
+      Currently waiting confirmation for: #{resource.faculty}
+  .field
     = f.label :password
     %i (leave blank if you don't want to change it)
     %br/
@@ -28,6 +35,13 @@
     %i (we need your current password to confirm your changes)
     %br/
     = f.password_field :current_password, autocomplete: "current-password"
+  = f.fields_for :student do |s|
+    - if current_user.content_type == 1
+      .field
+        = s.hidden_field :user_id
+        = s.label :grade
+        %br/
+        = s.select :grade, Student.grades.keys.map {|k| [I18n.t("enums.student.grades.#{k}"), k]}
   .actions
     = f.submit "Update"
 %h3 Cancel my account

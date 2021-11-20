@@ -2,7 +2,7 @@ class PostsController < ApplicationController
     before_action :researcher_confirm, only: [:new, :create, :edit, :destroy]
     before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
     def index
-        @q =  Post.all.ransack(params[:q])
+        @q =  Post.all.order(created_at: :desc).all.ransack(params[:q])
         @posts = @q.result(distinct: true).page(params[:page]).per(10)
     end
 
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
     end
     private
     def post_params
-        params.require(:post).permit(:title, :description, :caution, :testing_field, :reward, :item, :created_at, :id)
+        params.require(:post).permit(:title, :description, :caution, :testing_field, :reward, :item, :created_at, :id, :is_active, :experment_period, :recruitment_period)
     end
     def  researcher_confirm
         if current_user.content_type.to_i != 2

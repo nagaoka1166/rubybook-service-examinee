@@ -10,11 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_11_081350) do
+ActiveRecord::Schema.define(version: 2021_11_19_092223) do
 
   create_table "entries", charset: "utf8mb4", force: :cascade do |t|
-    t.string "name", default: "", null: false
-    t.string "mail_adress", default: "", null: false
     t.string "phone", null: false
     t.integer "age", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
@@ -25,6 +23,16 @@ ActiveRecord::Schema.define(version: 2021_11_11_081350) do
     t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
+  create_table "likes", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id", "post_id"], name: "index_likes_on_user_id_and_post_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "posts", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -33,13 +41,13 @@ ActiveRecord::Schema.define(version: 2021_11_11_081350) do
     t.integer "project"
     t.string "rabo"
     t.string "testing_field"
-    t.datetime "experment_period"
+    t.string "experment_period", null: false
     t.string "meet_time"
     t.string "reward"
     t.string "item"
     t.integer "count"
-    t.integer "is_active"
-    t.datetime "recruitment_period"
+    t.boolean "is_active", default: true, null: false
+    t.date "recruitment_period", default: "2021-11-13"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"

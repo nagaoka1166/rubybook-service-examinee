@@ -1,15 +1,30 @@
 class ContactMailer < ApplicationMailer
-    # default from: "送信元のメールアドレス"
+    default from: "送信元のメールアドレス"
 
-  def entries_email(user, post)
+    layout "mailer"
+
+    def request_email(post, user)
       @user = user
-      @post = params[:post_id]
-      mail to: user.email,
-      subject: '【サイト名】 お問い合わせありがとうございます'
+      @post = post
+      @researcher = @post.user
+    mail(
+      from: 'taskleaf@aaa.com',
+      to: @researcher.email,
+      subject: 'Test')
+    end
+
+  def entries_email(post, user)
+      @user = user
+      @post = post
+      @researcher = @post.user
+      mail(
+        from: @researcher.email,
+        to: @user.email,
+        subject: 'Test')
   end
 
-  private
-  def params
-    params.require(:post).permit(:post_id)
-  end
+  # private
+  # def params
+  #   params.require(:post).permit(:title, :description, :caution, :testing_field, :reward, :item, :created_at, :id, :is_active, :experment_period, :recruitment_period)
+  # end
 end

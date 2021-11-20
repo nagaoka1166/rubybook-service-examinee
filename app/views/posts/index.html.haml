@@ -44,4 +44,7 @@
                 .card-body
                     = link_to "#{post.title}", post
                     %p #{post.description}
-                    %button.btn.btn-primary{type: "button"} お気に入り
+                    -if post.is_active == true && post.recruitment_period > Date.today
+                        %p 募集中
+                    -else
+                        %p 募集停止
