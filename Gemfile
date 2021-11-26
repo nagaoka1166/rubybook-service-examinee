@@ -66,3 +66,5 @@ gem 'enum_help'
 gem 'kaminari'
 gem 'pry-rails'
 gem 'ransack'
+gem 'sidekiq'
+gem 'sinatra', require: false

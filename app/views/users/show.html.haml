@@ -11,4 +11,34 @@
                     %p 募集中
                 -else
                     %p 募集停止
-                    %button.btn.btn-primary{type: "button"} お気に入り
+
+%tbody
+    - current_user.like_posts.each do |post|
+        .card
+        %tr{id: "post_#{post.id}"}
+            .card-body
+                = link_to "#{post.title}", post
+                %p #{post.description}
+                -if post.is_active == true && post.recruitment_period > Date.today
+                    %p 募集中
+                -else
+                    %p 募集停止
+                - if current_user.liked_by?(post.id)
+                    = link_to 'いいねを外す', destroy_like_path(post), method: :delete, remote: true
+                - else
+                    = link_to 'いいね', create_like_path(post), method: :post, remote: true
+%tbody
+    - current_user.entry_posts.each do |post|
+        .card
+        %tr{id: "post_#{post.id}"}
+            .card-body
+                = link_to "#{post.title}", post
+                %p #{post.description}
+                -if post.is_active == true && post.recruitment_period > Date.today
+                    %p 募集中
+                -else
+                    %p 募集停止
+                - if current_user.liked_by?(post.id)
+                    = link_to 'いいねを外す', destroy_like_path(post), method: :delete, remote: true
+                - else
+                    = link_to 'いいね', create_like_path(post), method: :post, remote: true

@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     def index
         @q =  Post.all.order(created_at: :desc).all.ransack(params[:q])
         @posts = @q.result(distinct: true).page(params[:page]).per(10)
+        @like = Like.new
     end
 
     def new

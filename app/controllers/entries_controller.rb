@@ -8,12 +8,9 @@ class EntriesController < ApplicationController
         @user = current_user
         @entry.user_id = current_user.id
         @post = @entry.post
-        p "========================================="
-        p @entry.inspect
-        p @user.inspect
-        p @post
-        p current_user
-        p entries_params.inspect
+        # p "========================================="
+        # p @entry.inspect
+        # p @user.inspect
         # @post = current_user.post_id
         # byebug
         # @entry = current_user.Entry.new(entries_params)x

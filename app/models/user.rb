@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :entries
   has_many :likes, dependent: :destroy
+  has_many :like_posts, through: :likes, source: :post
+  has_many :entry_posts, through: :entries, source: :post
   accepts_nested_attributes_for :student
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

@@ -21,24 +21,14 @@
 
 %table.table.table-hover
     %thead.thead-default
-        %tr
-            /%th= sort_link(@q, :title, default_order: :desc)
-            %th= Post.human_attribute_name(:title)
-            %th= sort_link(@q, :created_at, default_order: :asc)
-            /%th= Post.human_attribute_name(:created_at)
-            %th
-    %tbody
         - @posts.each do |post|
             .card
-                .card-body
-                    %tr{id: "post_#{post.id}"}
-                    = link_to "#{post.title}", post
-                    %p #{post.description}
-                    -if post.is_active == true && post.recruitment_period > Date.today
-                        %p 募集中
-                    -else
-                        %p 募集停止
-                    - if current_user.liked_by?(post.id)
-                        = link_to 'いいねを外す', destroy_like_path(post), method: :DELETE, remote: true
-                    - else
-                        = link_to 'いいね', create_like_path(post), method: :POST, remote: true
+                %div{id: "post_#{post.id}"}
+                    .card-body
+                        = link_to "#{post.title}", post
+                        %p #{post.description}
+                        -if post.is_active == true && post.recruitment_period > Date.today
+                            %p 募集中
+                        -else
+                            %p 募集停止
+                        = render 'post', post: post

@@ -3,6 +3,8 @@ class Post < ApplicationRecord
     has_many :entries
     belongs_to :user
     has_many :likes
+    has_many :posts, dependent: :destroy
+    # has_many :like_users, through: :likes, source: :user
     #バリデーション
     validates :is_active, inclusion: [true, false]
 
