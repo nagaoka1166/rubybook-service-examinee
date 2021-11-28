@@ -6,6 +6,13 @@ class Post < ApplicationRecord
     has_many :posts, dependent: :destroy
     # has_many :like_users, through: :likes, source: :user
     #バリデーション
+    validates :title, presence: true
+    validates :description, presence: true , length: {minimum: 20}
+    validates :caution, presence: true
+    validates :testing_field, presence: true
+    validates :item, presence: true
+    validates :experment_period, presence: true
+    validates :recruitment_period, presence: true
     validates :is_active, inclusion: [true, false]
 
     enum faculty:{

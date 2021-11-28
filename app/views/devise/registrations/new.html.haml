@@ -24,11 +24,11 @@
       %em
         (#{@minimum_password_length} characters minimum)
     %br/
-    = f.password_field :password, autocomplete: "new-password"
+    = f.text_field :password, autocomplete: "new-password"
   .field
     = f.label :password_confirmation
     %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
+    = f.text_field :password_confirmation, autocomplete: "new-password"
   .field
     %br/
     = f.label :学生

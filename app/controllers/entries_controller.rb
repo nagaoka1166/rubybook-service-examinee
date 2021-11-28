@@ -27,8 +27,4 @@ class EntriesController < ApplicationController
     def entries_params
         params.require(:entry).permit(:age, :phone, :post_id)
     end
-
-    # def post_params
-    #     params.require(:post).permit(:title, :description, :caution, :testing_field, :reward, :item, :created_at, :id, :is_active, :experment_period, :recruitment_period)
-    # end
 end

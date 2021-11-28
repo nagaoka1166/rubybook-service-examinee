@@ -3,3 +3,4 @@
 = link_to  '一覧', posts_path, class: 'nav-link'
 
 = render partial: 'form', locals: { post: @post}
+= render 'error_form', locals: { user: @user }

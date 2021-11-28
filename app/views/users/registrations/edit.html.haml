@@ -20,7 +20,7 @@
     = f.label :password
     %i (leave blank if you don't want to change it)
     %br/
-    = f.password_field :password, autocomplete: "new-password"
+    = f.text_field :password, autocomplete: "new-password"
     - if @minimum_password_length
       %br/
       %em
@@ -29,12 +29,12 @@
   .field
     = f.label :password_confirmation
     %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
+    = f.text_field :password_confirmation, autocomplete: "new-password"
   .field
     = f.label :current_password
     %i (we need your current password to confirm your changes)
     %br/
-    = f.password_field :current_password, autocomplete: "current-password"
+    = f.text_field :current_password, autocomplete: "current-password"
   = f.fields_for :student do |s|
     - if current_user.content_type == 1
       .field

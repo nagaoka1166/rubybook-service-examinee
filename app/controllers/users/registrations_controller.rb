@@ -17,6 +17,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   user = User.new(sign_up_params)
   user.save
+  # ドメイン照合
+  # mailRegex = /.*@ed.ritsumei.ac.jp/
+  #   email = params[:user][:email]
+  #   if !email.match?(mailRegex)
+
+  #     flash[:notice] = 'ドメインは@ed.ritsumei.ac.jpのみ有効です'
+  #     return
+  #   end
   end
 
   def show
@@ -53,21 +61,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_out_path_for(resource)
     new_user_session_path # ログアウト後に遷移するpathを設定
   end
-  
-  def birthday_join
-    # パラメータ取得
-    date = params[:user][:birthday]
-    # ブランク時のエラー回避のため、ブランクだったら何もしない
-    # if date["birthday(1i)"].empty? && date["birthday(2i)"].empty? && date["birthday(3i)"].empty?
-    #   return
-    # end
-    # 年月日別々できたものを結合して新しいDate型変数を作って返す
-    # Date.new date["birthday(1i)"].to_i,date["birthday(2i)"].to_i,date["birthday(3i)"].to_i
-  end
+
   protected
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :faculty, :email, :encrypted_password, :content_type, student_attributes: [:age,
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :faculty, :email, :password, :content_type,  :password_confirmation, student_attributes: [:age,
     :sex, :grade, :birthday, :user_id]])
   end
 

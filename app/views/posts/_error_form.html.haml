@@ -1,0 +1,5 @@
+- if @post.errors.any?
+    .alert
+    %ul
+        - @post.errors.full_messages.each do |message|
+            %li= message

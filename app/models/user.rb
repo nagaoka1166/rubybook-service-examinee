@@ -8,6 +8,13 @@ class User < ApplicationRecord
   has_many :like_posts, through: :likes, source: :post
   has_many :entry_posts, through: :entries, source: :post
   accepts_nested_attributes_for :student
+  validates :name, presence: true
+  validates :faculty, presence: true
+  validates :email, uniqueness: { case_sensitive: false }
+  validates :content_type, presence: true
+  validates :password, presence: true, confirmation: true
+  validates :password_confirmation, presence: true
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
@@ -28,5 +35,5 @@ class User < ApplicationRecord
 
 attr_accessor :category
   devise :database_authenticatable, :registerable,
-        :recoverable, :rememberable, :validatable
+        :recoverable, :rememberable
 end

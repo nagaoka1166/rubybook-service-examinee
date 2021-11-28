@@ -8,6 +8,7 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
   models:
     user: ユーザー
+    post: 投稿
   attributes:
     user:
     id: ID
@@ -25,11 +26,21 @@ ja:
       password_confirmation: パスワード(確認)
       created_at: 登録日時
       updated_at: 更新日時
-    entry: 応募
-  attributes:
-    entry: 応募
-    phone: 電話番号
-    age: 年齢
+    post:
+      id: ID
+      title: タイトル
+      description: 詳細
+      caution: 注意事項
+      restriction: 応募条件
+      testing_field: "実験場所/集合場所"
+      experment_period: "実験期間"
+      recruitment_period: "募集期間"
+      item: "募集状況"
+      reward: "謝礼"
+      rabo: "研究室名"
+      is_active: '募集状況'
+      created_at: '登録日時'
+      updated_at: '更新日時'
   enums:
     user:
       faculties:
@@ -74,13 +85,13 @@ ja:
         graduate_food: "食事マネジメント"
     student:
       grades:
-        default: "---"
-        one: "1回生"
-        two: "2回生"
-        three: "3回生"
-        four: "4回生"
-        five: "5回生"
-        six: "6回生"
+        default: "1回生"
+        one: "2回生"
+        two: "3回生"
+        three: "4回生"
+        four: "5回生"
+        five: "6回生"
+        six: "7回生"
         M1: "M1"
         M2: "M2"
         M3: "M3"
