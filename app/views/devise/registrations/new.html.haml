@@ -40,7 +40,7 @@
       = s.hidden_field :user_id
       = s.label :grade
       %br/
-      = s.select :grade, Student.grade.keys.map {|k| [I18n.t("enums.student.grade.#{k}"), k]}
+      = s.select :grade, include_blank: true, Student.grade.keys.map {|k| [I18n.t("enums.student.grade.#{k}"), k]}
   .actions
   = f.submit "Sign up"
 = render "devise/shared/links"

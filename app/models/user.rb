@@ -10,11 +10,11 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :student
   validates :name, presence: true
   validates :faculty, presence: true
-  validates :email, uniqueness: { case_sensitive: false }
+  VALID_EMAIL_REGEX = /.*@ed.ritsumei.ac.jp/
+  validates :email, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX, message: "有効なメールアドレスをご入力ください。"}, if: :email?
   validates :content_type, presence: true
   validates :password, presence: true, confirmation: true
   validates :password_confirmation, presence: true
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
@@ -23,7 +23,6 @@ class User < ApplicationRecord
   end
   #　学部のセレクトボックス
   enum faculty:{
-          default:0,
           law:1,econmic:2,manegement:3,social:4,policy:5,letters:6,movie:7,
           psychology:8,Science_Engineering:9,Liberal:10,food:11,information_science:12, life_sciences:13,Pharmaceutical:14,
           sports:15,graduate_law:16,graduate_economic:17,graduate_manegement:18,graduate_social:19,graduata_liberal:20,

@@ -18,6 +18,5 @@
         - else
           = link_to 'サインアップ', new_user_registration_path
           = link_to 'ログイン', new_user_session_path
-    %p.notice= notice
-    %p.alert= alert
-    = yield
+    = render partial: 'layouts/flash'
+  = yield

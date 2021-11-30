@@ -15,7 +15,7 @@ class PostsController < ApplicationController
         @post = Post.new(post_params)
         @post.user = current_user
         if @post.save
-        redirect_to posts_path, notice: "タスク「#{@post.title}」を登録しました。"
+        redirect_to posts_path, success: "Successfully created your prototype."
         else
             render :new
         end

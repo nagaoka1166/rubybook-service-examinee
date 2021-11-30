@@ -8,7 +8,7 @@
   .field
     = f.label :faculty
     %br/
-    = f.select :faculty, User.faculties.keys.map {|k| [I18n.t("enums.user.faculties.#{k}"), k]}
+    = f.select :faculty, User.faculties.keys.map {|k| [I18n.t("enums.user.faculties.#{k}"), k]}, include_blank: "-------"
   .field
     = f.label :email
     %br/
@@ -41,7 +41,7 @@
       = s.hidden_field :user_id
       = s.label :grade
       %br/
-      = s.select :grade, Student.grades.keys.map {|k| [I18n.t("enums.student.grades.#{k}"), k]}
+      = s.select :grade, Student.grades.keys.map {|k| [I18n.t("enums.student.grades.#{k}"), k]}, include_blank: "-------"
   .actions
   = f.submit "Sign up"
 = render "devise/shared/links"

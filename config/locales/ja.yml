@@ -9,38 +9,36 @@ ja:
   models:
     user: ユーザー
     post: 投稿
+    student: 学生
+    researcher: 教授
   attributes:
     user:
     id: ID
-    name: 名称
-    description: 詳しい説明
-    image: 画像
+    name: 名前
+    email: メールアドレス
+    admin: 管理者権限
+    password: パスワード
+    password_confirmation: パスワード(確認)
     created_at: 登録日時
     updated_at: 更新日時
-    user:
-      id: ID
-      name: 名前
-      email: メールアドレス
-      admin: 管理者権限
-      password: パスワード
-      password_confirmation: パスワード(確認)
-      created_at: 登録日時
-      updated_at: 更新日時
     post:
-      id: ID
-      title: タイトル
-      description: 詳細
-      caution: 注意事項
-      restriction: 応募条件
-      testing_field: "実験場所/集合場所"
-      experment_period: "実験期間"
-      recruitment_period: "募集期間"
-      item: "募集状況"
-      reward: "謝礼"
-      rabo: "研究室名"
-      is_active: '募集状況'
-      created_at: '登録日時'
-      updated_at: '更新日時'
+    id: ID
+    title: タイトル
+    description: 詳しい説明
+    caution: 注意事項
+    restriction: 応募条件
+    testing_field: 実験場所/集合場所
+    faculty: 所属学部・研究室
+    experment_period: 実験期間
+    recruitment_period: 募集期間
+    item: 募集状況
+    reward: 謝礼
+    rabo: 研究室名
+    is_active: 募集状況
+    created_at: 登録日時
+    updated_at: 更新日時
+    student:
+    grade: 学年
   enums:
     user:
       faculties:
@@ -85,7 +83,7 @@ ja:
         graduate_food: "食事マネジメント"
     student:
       grades:
-        default: "1回生"
+        zero: "1回生"
         one: "2回生"
         two: "3回生"
         three: "4回生"

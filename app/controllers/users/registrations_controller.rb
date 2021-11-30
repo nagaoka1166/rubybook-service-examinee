@@ -17,14 +17,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   user = User.new(sign_up_params)
   user.save
-  # ドメイン照合
-  # mailRegex = /.*@ed.ritsumei.ac.jp/
-  #   email = params[:user][:email]
-  #   if !email.match?(mailRegex)
-
-  #     flash[:notice] = 'ドメインは@ed.ritsumei.ac.jpのみ有効です'
-  #     return
-  #   end
   end
 
   def show
