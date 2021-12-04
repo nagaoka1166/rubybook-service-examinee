@@ -15,7 +15,8 @@ class PostsController < ApplicationController
         @post = Post.new(post_params)
         @post.user = current_user
         if @post.save
-        redirect_to posts_path, success: "Successfully created your prototype."
+        flash[:info] = "登録が完了しました。"
+        redirect_to posts_path
         else
             render :new
         end

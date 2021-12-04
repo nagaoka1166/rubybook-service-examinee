@@ -1,2 +1,5 @@
 - flash.each do |key, value|
-  = content_tag(:p, value, class: key)
+  %div{class: "alert alert-#{key} mx-auto alert-dismissible fade show"}
+    = value
+    %button{class: "close", type: "button", "data-dismiss" => "alert", "aria-label" => "Close"}
+      %span{"aria-hidden" => "true"} &times;
