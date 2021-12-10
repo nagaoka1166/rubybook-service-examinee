@@ -1,47 +1,52 @@
+- content_for :css do
+    =stylesheet_link_tag '/assets/posts/show'
 %h1 ユーザの詳細
 
-.nav.justify-content-end
-    = link_to '一覧', posts_path, class: 'nav-link'
-= stylesheet_link_tag "posts"
-%table.table.table-hover
-    %tbody
-    %tr
-        %th= Post.human_attribute_name(:id)
-        %td= @post.id
-    %tr
-        %th= Post.human_attribute_name(:title)
-        %td= @post.title
-    %tr
-        %th= Post.human_attribute_name(:caution)
-        %td= @post.caution
-    %tr
-        %th= Post.human_attribute_name(:testing_field)
-        %td= @post.testing_field
-    %tr
-        %th= Post.human_attribute_name(:item)
-        %td= @post.item
-    %tr
-        %th= Post.human_attribute_name(:reward)
-        %td= @post.reward
-    %tr
-        %th= Post.human_attribute_name(:experment_period)
-        %td= @post.experment_period
-    %tr
-        %th= Post.human_attribute_name(:recruitment_period)
-        %td= @post.recruitment_period
-    %tr
-        %th= Post.human_attribute_name(:募集状況)
-        %td= @post.is_active
-    %tr
-        %th= Post.human_attribute_name(:created_at)
-        %td= @post.created_at
-    %tr
-        %th= Post.human_attribute_name(:updated_at)
-        %td= @post.updated_at
-- if @post.user_id == current_user.id
 
-    = link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'
-    = link_to '削除', @post, method: :delete, data: { confirm: "ユーザ「#{@post.title}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
+.row
+    .col-md-1.col-sm-2
+    .col-md-7.col-sm-8
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold タイトル
+            .card-footer.bg-white{style: "height: 100px;"}
+                = @post.title
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 実験内容
+            .card-footer.bg-white{style: "height: 100px;"}
+                = @post.description
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 参加条件
+            .card-footer.bg-white{style: "height: 100px;"}
+                = @post.restriction
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 持ち物
+            .card-footer.bg-white{style: "height: 100px;"}
+                = @post.item
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 集合場所
+            .card-footer.bg-white{style: "height: 100px;"}
+                = @post.testing_field
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 実験期間
+            .card-footer.bg-white{style: "height: 100px;"}
+                = @post.experment_period
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 募集期間
+            .card-footer.bg-white{style: "height: 100px;"}
+                = @post.recruitment_period
+    .col-sm-1
+    .col-md-3.col-sm-3
+        - if @post.user_id == current_user.id
+            = link_to '編集', edit_post_path, class: 'edit shadow w-50 btn btn-primary btn-lg btn-block ', style: "margin-bottom: 10px;"
+            = link_to '削除', @post, method: :delete, data: { confirm: "ユーザ「#{@post.title}」を削除します。よろしいですか？" }, class: 'shadow w-50 btn btn-success btn-lg btn-block'
+        - if @post.is_active == true && @post.recruitment_period > Date.today
+            = link_to '応募する', new_entry_path(post_id: @post.id), class: 'btn btn--orange btn--cubic btn--shadow btn-lg btn-block w-50'
 
-- if @post.is_active == true && @post.recruitment_period > Date.today
-    = link_to '応募する', new_entry_path(post_id: @post.id), class: '.btn.btn-c'
+.aaa あああ

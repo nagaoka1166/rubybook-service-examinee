@@ -1,48 +1,59 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :name, autofocus: true, autocomplete: "name", placeholder: '例: 立命太郎'
-  .field
-    = f.label :faculty
-    %br/
-    = f.select :faculty, User.faculties.keys.map {|k| [I18n.t("enums.user.faculties.#{k}"), k]}, include_blank: "-------"
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email", :value => "@ed.ritsumei.ac.jp"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.text_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.text_field :password_confirmation, autocomplete: "new-password"
-  .field
-    %br/
-    = f.label :content_type, "学生", value: 1
-    = f.radio_button :content_type, '1'
-    = f.label :content_type, "研究者", value: 2
-    = f.radio_button :content_type, '2'
-  = f.fields_for :student do |s|
-    .field
-      = s.hidden_field :user_id
-      = s.label :sex, "男性", value: 1
-      = s.radio_button :sex, '1'
-      = s.label :sex, "女性", value: 2
-      = s.radio_button :sex, '2'
-    .field
-      = s.hidden_field :user_id
-      = s.label :grade
-      %br/
-      = s.select :grade, Student.grades.keys.map {|k| [I18n.t("enums.student.grades.#{k}"), k]}, include_blank: "-------"
-  .actions
-  = f.submit "Sign up"
-= render "devise/shared/links"
+- content_for :css do
+  =stylesheet_link_tag 'sign_up'
+.box
+  .box_inner
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      %h1 アカウント登録
+      .box-name
+        = f.label :name
+        %br/
+        = f.text_field :name, autofocus: true, autocomplete: "name", placeholder: '例: 立命太郎'
+      .box-email
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", :value => "@ed.ritsumei.ac.jp"
+      .box-password
+        = f.label :password
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.text_field :password, autocomplete: "new-password"
+      .box-password-confirmation
+        = f.label :password_confirmation
+        %br/
+        = f.text_field :password_confirmation, autocomplete: "new-password"
+      .box-faculty
+        = f.label :faculty
+        %br/
+        = f.select :faculty, User.faculties.keys.map {|k| [I18n.t("enums.user.faculties.#{k}"), k]}, include_blank: "-------"
+      .box-content_type
+        = f.label :"学生/研究者"
+        %br/
+        = f.label :content_type, "学生", value: 1
+        = f.radio_button :content_type, '1'
+        = f.label :content_type, "研究者", value: 2
+        = f.radio_button :content_type, '2'
+      .legal-text
+        ※ 研究者の方は以下の二つに記入しないでください
+      = f.fields_for :student do |s|
+        .box-sex
+          = s.label :性別
+          %br/
+          = s.hidden_field :user_id
+          = s.label :sex, "男性", value: 1
+          = s.radio_button :sex, '1'
+          = s.label :sex, "女性", value: 2
+          = s.radio_button :sex, '2'
+        .box-grade
+          = s.hidden_field :user_id
+          = s.label :grade
+          %br/
+          = s.select :grade, Student.grades.keys.map {|k| [I18n.t("enums.student.grades.#{k}"), k]}, include_blank: "-------"
+      .box-signup
+        .actions
+        = f.submit "アカウント登録"
+      .box-newusr
+        = link_to "ログイン画面へ", user_session_path
 

@@ -1,0 +1,242 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+}
+.box {
+  width: 400px;
+  height: 760px;
+  margin: 50px auto 0;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+}
+
+.box-inner {
+  padding: 20px 26px;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+  color: #111111;
+  margin-left: 24px;
+  padding-top: 14px;
+}
+
+.box-name {
+  margin-bottom: 5px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.box-email {
+  margin-bottom: 5px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.box-faculty {
+  margin-bottom: 11px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+/* 学年カラムと学部カラムのセレクトボックス幅 */
+.box-faculty select, .box-grade select{
+  width: 100%;
+}
+
+.box-password {
+  margin-bottom: 11px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.box-password-confirmation {
+  margin-bottom: 20px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.box-sex {
+  margin-bottom: 11px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.box-content_type {
+  margin-bottom: 11px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.box-grade {
+  margin-bottom: 11px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.box-email label, .box-password label, .box-name label, .box-password-confirmation label, .box-faculty label, .box-sex label, .box-grade label, .box-content_type label{
+  font-weight: 700;
+  font-size: 13px;
+  padding-left: 2px;
+  padding-bottom: 2px;
+}
+
+
+
+.box-name input[type="text"]{
+  border-style: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 31px;
+  border: 1px solid #a6a6a6;
+  box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;
+  border-radius: 3px;
+  padding: 0 7px;
+}
+
+.box-email input[type="email"], .box-password input[type="text"], .box-faculty input[type="select"], .box-password-confirmation input[type="text"] {
+  border-style: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 31px;
+  border: 1px solid #a6a6a6;
+  box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;
+  border-radius: 3px;
+  padding: 0 7px;
+}
+
+
+.box-password a {
+  font-size: 13px;
+}
+
+.box-password-confirmation{
+  font-size: 13px;
+}
+
+.box-signup {
+  margin-bottom: 10px;
+}
+
+.box-signup input[type="submit"] {
+  border-style: none;
+  width: 100%;
+  height: 31px;
+  background: linear-gradient(to bottom,#11e2d1ce,#17c8df);
+  border-radius: 3px;
+  border: 1px #24e4eb solid;
+}
+
+.box-signup input[type="submit"]:hover {
+  cursor: pointer;
+  background: #2191ec;
+}
+
+.legal-text {
+  margin-top: 5px;
+  font-size: 12px;
+  margin-left: 24px;
+}
+
+
+.box-newusr p {
+  text-align: center;
+  font-size: 12px;
+  color: #767676;
+  margin-bottom: 14px;
+}
+
+.box-newusr p span {
+  text-decoration: line-through;
+  text-decoration-color: #e7e7e7;
+}
+
+.box-newusr a {
+  display: block;
+  width: 100%;
+  height: 31px;
+  font-size: 13px;
+  color: #111;
+  line-height: 31px;
+  text-align: center;
+  background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+  border-radius: 3px;
+  border: 1px #a2a6ac solid;
+}
+
+.box-newusr a:hover {
+  background: #e7e9ec;
+}
+
+
+/* .box-login {
+  margin-bottom: 16px;
+}
+
+.box-login  {
+  border-style: none;
+  width: 100%;
+  height: 31px;
+  background: linear-gradient(to bottom,#a8f7a5,#379c0f);
+  border-radius: 3px;
+  border: 1px #6fb90f solid;
+}
+
+.box-login a:hover {
+  cursor: pointer;
+  background: #67f04b;
+} */
+
+/* .box-login a {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  padding: 1em 2em;
+  width: 300px;
+  color: #333;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: #cccccc;
+  transition: 0.3s;
+}
+
+.box-login a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 2em;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 2px;
+  background-color: #333333;
+  transition: 0.3s;
+}
+
+.box-login a::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: calc(2em - 2px);
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 10px;
+  border-color: transparent transparent transparent #333333;
+  transition: 0.3s;
+}
+
+.box-login a:hover {
+  text-decoration: none;
+  background-color: #bbbbbb;
+}
+
+.box-login a:hover::before,
+.box-login a:hover::after {
+  right: 1.7em;
+} */

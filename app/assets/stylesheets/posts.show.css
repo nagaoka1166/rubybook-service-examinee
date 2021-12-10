@@ -1,0 +1,26 @@
+@media screen and (max-width:800px) {
+    /*　画面サイズが480pxからはここを読み込む　*/
+    .col-sm-3{
+        max-width: 736px;
+        margin-left: 20%;
+        }
+    .col-md-7{
+        max-auto: 0;
+    }
+}
+
+a.btn--orange {
+    color: #fff;
+    background-color: #2da3c0;
+    border-bottom: 5px solid #0594c0;
+  }
+  a.btn--orange:hover {
+    margin-top: 3px;
+    color: #fff;
+    background: #2da3c0;
+    border-bottom: 2px solid #0594c0;
+  }
+  a.btn--shadow {
+    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  }
