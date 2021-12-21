@@ -1,6 +1,6 @@
 - content_for :css do
   = stylesheet_link_tag '/assets/registrations/edit'
-.box
+.box_edit
   .box_inner
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
       = render "users/shared/error_messages", resource: resource
@@ -29,7 +29,7 @@
         = f.text_field :password_confirmation, autocomplete: "new-password"
       .box-current_password
         = f.label :current_password
-        %i (we need your current password to confirm your changes)
+        %i (パスワードを変更するためには現在のパスワードが必要です)
         %br/
         = f.text_field :current_password, autocomplete: "current-password"
       = f.fields_for :student do |s|
@@ -42,8 +42,7 @@
       .box-update
         .actions
         = f.submit "更新"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+      .button-delete
+        #{button_to "アカウント削除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+      = link_to "戻る", :back
 

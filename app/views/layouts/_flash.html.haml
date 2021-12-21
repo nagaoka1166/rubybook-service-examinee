@@ -1,5 +1,6 @@
+- content_for :css do
+  =stylesheet_link_tag '/assets//flash'
 - flash.each do |key, value|
-  %div{class: "alert alert-#{key} mx-auto alert-dismissible fade show"}
-    = value
-    %button{class: "close", type: "button", "data-dismiss" => "alert", "aria-label" => "Close"}
-      %span{"aria-hidden" => "true"} &times;
+  .alert
+    %div{class: "alert alert-#{key} mx-auto"}
+      = value

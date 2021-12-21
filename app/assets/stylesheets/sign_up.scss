@@ -11,6 +11,14 @@
   border: 1px #ddd solid;
 }
 
+.box__signin{
+  width: 400px;
+  height: 370px;
+  margin: 60px auto 0;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+}
+
 .box-inner {
   padding: 20px 26px;
 }
@@ -45,7 +53,7 @@ h1 {
 }
 
 /* 学年カラムと学部カラムのセレクトボックス幅 */
-.box-faculty select, .box-grade select{
+.box-faculty select, .box-grade select {
   width: 100%;
 }
 
@@ -60,6 +68,8 @@ h1 {
   margin-left: 24px;
   margin-right: 24px;
 }
+
+
 
 .box-sex {
   margin-bottom: 11px;
@@ -79,14 +89,18 @@ h1 {
   margin-right: 24px;
 }
 
-.box-email label, .box-password label, .box-name label, .box-password-confirmation label, .box-faculty label, .box-sex label, .box-grade label, .box-content_type label{
+.box-email label, .box-password label, .box-name label, .box-password-confirmation label, .box-faculty label, .box-sex label, .box-grade label, .box-content_type label, .box-current_password label{
   font-weight: 700;
   font-size: 13px;
   padding-left: 2px;
   padding-bottom: 2px;
 }
 
-
+.box-current_password {
+  margin-bottom: 20px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
 
 .box-name input[type="text"]{
   border-style: none;
@@ -99,7 +113,7 @@ h1 {
   padding: 0 7px;
 }
 
-.box-email input[type="email"], .box-password input[type="text"], .box-faculty input[type="select"], .box-password-confirmation input[type="text"] {
+.box-email input[type="email"], .box-password input[type="text"], .box-faculty input[type="select"], .box-password-confirmation input[type="text"] .box-current_password input[type="text"]{
   border-style: none;
   box-sizing: border-box;
   width: 100%;
@@ -174,69 +188,3 @@ h1 {
 }
 
 
-/* .box-login {
-  margin-bottom: 16px;
-}
-
-.box-login  {
-  border-style: none;
-  width: 100%;
-  height: 31px;
-  background: linear-gradient(to bottom,#a8f7a5,#379c0f);
-  border-radius: 3px;
-  border: 1px #6fb90f solid;
-}
-
-.box-login a:hover {
-  cursor: pointer;
-  background: #67f04b;
-} */
-
-/* .box-login a {
-  display: block;
-  position: relative;
-  margin: 0 auto;
-  padding: 1em 2em;
-  width: 300px;
-  color: #333;
-  font-size: 18px;
-  font-weight: 700;
-  background-color: #cccccc;
-  transition: 0.3s;
-}
-
-.box-login a::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 2em;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 2px;
-  background-color: #333333;
-  transition: 0.3s;
-}
-
-.box-login a::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: calc(2em - 2px);
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 6px 0 6px 10px;
-  border-color: transparent transparent transparent #333333;
-  transition: 0.3s;
-}
-
-.box-login a:hover {
-  text-decoration: none;
-  background-color: #bbbbbb;
-}
-
-.box-login a:hover::before,
-.box-login a:hover::after {
-  right: 1.7em;
-} */

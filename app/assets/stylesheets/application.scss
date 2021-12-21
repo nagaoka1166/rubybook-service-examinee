@@ -10,15 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *=  require_tree .
  *= require_self
- *= require_edit
- *= require sign_in
- *= require sign_up
+*= require_tree .
  */
-//  .container-login {
-//     @extend .container-fluid;
-//     max-width: 576px;
-//     padding: 2rem;
-//   }
+
 @import "bootstrap";
+@import "./sign_in";
+@import "./sign_up";
