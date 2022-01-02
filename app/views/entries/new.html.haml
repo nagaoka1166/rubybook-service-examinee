@@ -1,36 +1,48 @@
-!!!
-%html{lang: "ja"}
-  %head
-    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{charset: "UTF-8"}/
-    %link{crossorigin: "anonymous", href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", integrity: "sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", rel: "stylesheet"}/
-    %link{crossorigin: "anonymous", href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css", integrity: "sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r", rel: "stylesheet"}/
-  %body
-    .container
-      .navbar
-        %h1 応募フォーム
-      %form.form-horizontal
-      %p 名前: #{current_user.name}, placeholder :
-      %p メールアドレス: #{current_user.email}
-= form_with model: @entry do |f|
-  .form-group
+.box_con05
+  = form_with model: @entry do |f|
     = f.hidden_field :post_id, value:params[:post_id]
-  .form-group
-  %br/
-  .form-group
-  %br
-    = f.label :電話番号, class:'col-sm-2.control-label'
-    %span.label.label-danger 必須
-  .col-sm-10
-    = f.text_field :phone, class: 'form-control', placeholder: '例: 090-XXX-XXX', required: '', type: 'text'
-  .form-group
-  %br
-    = f.label :年齢, class:'col-sm-2.control-label'
-    %span.label.label-danger 必須
-  .col-sm-10
-    = f.number_field :age, class: 'form-control', required: ''
-  %br
-  .form-group
-  %br
-    .col-sm-offset-0.col-sm-10
-      =f.submit '送信', class: 'btn-default'
+    %form
+      %ul.formTable
+        %li
+          %p.title
+            %em お名前
+          .box_det
+            %p  #{current_user.name}
+        %li
+          %p.title
+            %em Mail（半角）
+          .box_det
+            %p  #{current_user.email}
+        %li
+          %p.title
+            %em 電話番号（半角）
+          .box_det
+            = f.text_field :phone, class: 'form-control', placeholder: '例: 090-XXX-XXX', required: '', type: 'text'
+            %span 必須
+        %li
+          %p.title
+            %em 年齢
+          .box_det
+            = f.number_field :age, class: 'form-control', required: ''
+            %span 必須
+      .con_pri
+        .box_pri
+          .box_tori
+            %h4 プライバシー
+            %p.txt プライバシープライバシープライバシープライバシープライバシープライバシープライバシープライバシープライバシープライバシープライバシープライバシープライバシープライバシープライバシー
+          .box_num
+            %h4 プライバシー
+            %p.txt プライバシープライバシープライバシープライバシープライバシープライバシープライバシープライバシー
+          .box_num
+            %h4 プライバシー
+            %p.txt プライバシープライバシープライバシープライバシープライバシープライバシープライバシープライバシー
+          .box_num
+            %h4 プライバシー
+            %p.txt プライバシープライバシープライバシープライバシープライバシープライバシープライバシープライバシー
+      .box_check
+        %label
+          %input.agree{"aria-invalid" => "false", name: "acceptance-714", type: "checkbox", value: "1"}/
+          %span.check プライバシーポリシーに同意する
+      %p.btn
+        %span
+          =f.submit '送信', class: 'btn-default'

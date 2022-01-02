@@ -14,20 +14,25 @@
 
 %tbody
     - current_user.like_posts.each do |post|
-        .card
-        %tr{id: "post_#{post.id}"}
+        .card.mx-auto
             .card-body
-                = link_to "#{post.title}", post
-                %p #{post.description}
-                -if post.is_active == true && post.recruitment_period > Date.today
-                    %p 募集中
-                -else
-                    %p 募集停止
-                %div{id: "post_#{post.id}"}
-                    - if current_user.liked_by?(post.id)
-                        = link_to 'いいねを外す', destroy_like_path(post), method: :delete, remote: true
-                    - else
-                        = link_to 'いいね', create_like_path(post), method: :post, remote: true
+                .card-title
+                    = link_to "#{post.title}", post
+                .card-description
+                    %p #{post.description}
+                .reaction
+                    -if post.is_active == true && post.recruitment_period > Date.today
+                        募集中
+                    -else
+                        募集停止
+                    .card-like
+                        %div{id: "post_#{post.id}"}
+                            - if current_user.liked_by?(post.id)
+                                = link_to "外す", destroy_like_path(post), class: "like-link", method: :delete, remote: true
+                                %i.fa.fa-heart.unlike-btn
+                            - else
+                                = link_to "お気に入り", create_like_path(post), class: "like-link", method: :post, remote: true
+                                %i.fa.fa-heart.like-btn
 %tbody
     - current_user.entry_posts.each do |post|
         .card

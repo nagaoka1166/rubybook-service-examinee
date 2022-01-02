@@ -1,5 +1,5 @@
 @media screen and (max-width:800px) {
-    /*　画面サイズが480pxからはここを読み込む　*/
+    /*　画面サイズが800pxからはここを読み込む　*/
     .col-sm-3{
         max-width: 736px;
         margin-left: 20%;
