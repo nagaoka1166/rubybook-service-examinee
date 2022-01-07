@@ -12,13 +12,44 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %header
-      %nav
-        - if user_signed_in?
-          %strong= link_to current_user.name, user_path(current_user.id)
-          = link_to 'プロフィール変更', edit_user_registration_path
-          = link_to 'ログアウト', destroy_user_session_path, method: :delete
-        - else
-          = link_to 'サインアップ', new_user_registration_path
-          = link_to 'ログイン', new_user_session_path
+      %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        .container-fluid
+          %a.navbar-brand{href: "#"} Navbar scroll
+          %button.navbar-toggler{"aria-controls" => "navbarScroll", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarScroll", "data-bs-toggle" => "collapse", type: "button"}
+            %span.navbar-toggler-icon
+          #navbarScroll.collapse.navbar-collapse
+            %ul.navbar-nav.me-auto.my-2.my-lg-0.navbar-nav-scroll{style: "--bs-scroll-height: 100px;"}
+              %li.nav-item
+                %a.nav-link.active{"aria-current" => "page", href: "#"} Home
+              %li.nav-item
+                %a.nav-link{href: "#"} お気に入り
+              %li.nav-item
+                %a.nav-link{href: "#"} 応募一覧
+              %li.nav-item.dropdown
+                %a#navbarScrollingDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", href: "#", role: "button"}
+                  Link
+                %ul.dropdown-menu{"aria-labelledby" => "navbarScrollingDropdown"}
+                  %li
+                    %a.dropdown-item{href: "#"} Action
+                  %li
+                    %a.dropdown-item{href: "#"} Another action
+                  %li
+                    %hr.dropdown-divider/
+                  %li
+                    %a.dropdown-item{href: "#"} Something else here
+              %li.nav-item
+                %a.nav-link.disabled{"aria-disabled" => "true", href: "#", tabindex: "-1"} Link
+            - if user_signed_in?
+              %strong= link_to current_user.name, user_path(current_user.id)
+              = link_to 'プロフィール変更', edit_user_registration_path
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete
+            - else
+              = link_to 'サインアップ', new_user_registration_path
+              = link_to 'ログイン', new_user_session_path
+    - flash.each do |key, value|
+      %div{class: "alert alert-#{key} mx-auto"}
+        = value
+        %button{class: "close", type: "button", "data-dismiss" => "alert", "aria-label" => "Close"}
+          %span{"aria-hidden" => "true"} &times;
     = render partial: 'layouts/flash'
   = yield
