@@ -211,3 +211,9 @@
   .button-delete {
     margin-bottom: 10px;
   }
+
+  @media screen and (min-width:300px) {
+    .box-edit{
+      margin: auto;
+    }
+   }

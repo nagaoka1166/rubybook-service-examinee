@@ -9,10 +9,16 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations'} do
       match "users/:user_id/sign_up" => "registrations#new", :as => :new__user_registration
   end
-  resources :users, only: [:index, :show, :edit, :update ]
+  resources :users, only: [:index, :show, :edit, :update]
   resources :users do
     member do
       get :likes
+    end
+    member do
+      get :entries
+    end
+    member do
+      get :posts
     end
   end
   resources :entries, only: [:new, :create]
@@ -21,7 +27,7 @@ Rails.application.routes.draw do
 
   Rails.application.routes.draw do
     resources :posts do
-      resource :likes, only: [:create, :destroy]
+      resource :likes, only: [:show, :create, :destroy]
     end
   end
   post 'like/:id' => 'likes#create', as: 'create_like'

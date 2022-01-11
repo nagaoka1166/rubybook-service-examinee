@@ -18,7 +18,9 @@ class EntriesController < ApplicationController
         if @entry.save!
             ContactMailer.entries_email(@post, @user).deliver_now
             ContactMailer.request_email(@post, @user).deliver_now
-            redirect_to @post, notice: "「#{@post.title}」への参加手続きが完了いたしました"
+            flash[:info] = "「#{@post.title}」への参加手続きが完了いたしました"
+            redirect_to posts_path
+            # redirect_to @post, notice: "「#{@post.title}」への参加手続きが完了いたしました"
         else
             render :new
         end

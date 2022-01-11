@@ -13,6 +13,34 @@
  *= require_self
 *= require_tree .
  */
+ @media screen and (min-width:300px) {
+  nav {
+    // width: 570px;
+  }
+ }
+
+
+ @media screen and (min-width:560px) {
+  nav {
+    width: 100%;
+  }
+
+ }
+
+ @media screen and (min-width:820px) {
+  nav {
+    width: 100%;
+  }
+
+ }
+
+
+
+
+ .text-center {
+    color: #6c757d;
+  }
+  
 
 @import "bootstrap";
 @import "./sign_in";

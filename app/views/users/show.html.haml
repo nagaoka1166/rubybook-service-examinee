@@ -31,7 +31,7 @@
                                 = link_to "外す", destroy_like_path(post), class: "like-link", method: :delete, remote: true
                                 %i.fa.fa-heart.unlike-btn
                             - else
-                                = link_to "お気に入り", create_like_path(post), class: "like-link", method: :post, remote: true
+                                = link_to "後で見る", create_like_path(post), class: "like-link", method: :post, remote: true
                                 %i.fa.fa-heart.like-btn
 %tbody
     - current_user.entry_posts.each do |post|

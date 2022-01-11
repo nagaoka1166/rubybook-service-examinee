@@ -1,7 +1,7 @@
 .card-like
   - if current_user.liked_by?(post.id)
-    = link_to "外す", destroy_like_path(post), class: "like-link", method: :delete, remote: true
-    %i.fa.fa-heart.unlike-btn
+    = link_to  destroy_like_path(post), class: "like-link", method: :delete, remote: true do
+      %i.fa.fa-heart.unlike-btn
   - else
-    = link_to "保存", create_like_path(post), class: "like-link", method: :post, remote: true
-    %i.fa.fa-heart.like-btn
+    = link_to create_like_path(post), class: "like-link", method: :post, remote: true do
+      %i.fa.fa-heart.like-btn

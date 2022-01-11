@@ -1,13 +1,9 @@
 - content_for :css do
     = stylesheet_link_tag '/assets/posts/show'
-
 %dl.searchbox.mx-auto
     = search_form_for @q, class: "" do |f|
         %dt= f.text_field :title_cont ,placeholder: '検索するテキストを入力...'
         %dd= f.submit ("検索") , class: 'search-btn'
-
-
-= link_to  '新規登録', new_post_path, class: 'nav-link' if current_user.content_type == 2
 .pagenate
     = paginate @posts
     = page_entries_info @posts

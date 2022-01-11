@@ -41,16 +41,20 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
         if @post.user == current_user
             @post.update!(post_params)
-            redirect_to posts_url, notice: "タスク「#{@post.title}」を更新しました。"
+            flash[:info] = "求人「#{@post.title}」を更新しました。"
+            redirect_to posts_path
+            # redirect_to posts_url, notice: "タスク「#{@post.title}」を更新しました。"
         else
             redirect_to posts_path
         end
     end
-
+# FIX: destroyが動かなくなったので修正する
     def destroy
-        post = Post.find(params[:id])
-        if post.user == current_user
-        post.destroy
+        @post = Post.find(params[:id])
+        if @post.user == current_user
+           @post.destroy
+        # flash[:alert] = "求人「#{@post.title}」を削除しました。"
+        # redirect_to posts_path
         redirect_to posts_url, notice: "タスク「#{post.title}」を削除しました。"
         else
             redirect_to posts_path

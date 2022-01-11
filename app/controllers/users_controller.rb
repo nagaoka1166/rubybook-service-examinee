@@ -23,6 +23,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @posts = @user.posts
         @likes_posts = @user.likes
+        @entries_posts = @user.entries
     end
   def after_sign_up_path_for(resource)
     if  sign_up_params[:content_type] == 1

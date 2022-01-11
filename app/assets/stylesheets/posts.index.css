@@ -1,5 +1,5 @@
 .card {
-  width: 30rem;
+  width: 35rem;
   margin-bottom: 20px;
 }
 
@@ -18,12 +18,17 @@
 .pagenate {
  text-align: center;
 }
+
+.searchbox{
+  justify-content: center;
+}
 dl.searchbox{
   width: 400px;
-  position:relative;
+  position: relative;
   background-color:#fff;
   border:1px solid #aaa;
   border-radius:6px;
+  margin: 10px auto;
 }
 dl.searchbox dt{
   padding:3px;
@@ -54,4 +59,29 @@ dl.searchbox dd{
 
 .search-btn:hover {
   background:#67c6f1;
+}
+
+@media screen and (min-width:300px) {
+  /*画面サイズが〇〇pxか以下適用*/
+  dl.searchbox{
+    display: block;
+    margin: 10px;
+    width: 250px;
+  }
+
+  dl {
+    display: inline-block;
+    margin-bottom: 100;
+  }
+}
+
+@media screen and (min-width:760px) {
+  /*画面サイズが〇〇pxか以下適用*/
+  dl.searchbox{
+    width: 400px;
+  position: relative;
+  background-color:#fff;
+  border:1px solid #aaa;
+  border-radius:6px;
+  }
 }
