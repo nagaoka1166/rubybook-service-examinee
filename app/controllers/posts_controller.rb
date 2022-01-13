@@ -2,7 +2,6 @@ class PostsController < ApplicationController
     before_action :researcher_confirm, only: [:new, :create, :edit, :destroy]
     before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
     def index
-        console
         @q =  Post.all.order(created_at: :desc).all.ransack(params[:q])
         @posts = @q.result(distinct: true).page(params[:page]).per(10)
         @like = Like.new
@@ -50,9 +49,9 @@ class PostsController < ApplicationController
     end
 # FIX: destroyが動かなくなったので修正する
     def destroy
-        @post = Post.find(params[:id])
-        if @post.user == current_user
-           @post.destroy
+        post = Post.find(params[:id])
+        if post.user == current_user
+           post.destroy
         # flash[:alert] = "求人「#{@post.title}」を削除しました。"
         # redirect_to posts_path
         redirect_to posts_url, notice: "タスク「#{post.title}」を削除しました。"

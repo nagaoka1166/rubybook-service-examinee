@@ -1,5 +1,5 @@
 .card {
-  width: 35rem;
+  width: 20rem;
   margin-bottom: 20px;
 }
 
@@ -73,6 +73,11 @@ dl.searchbox dd{
     display: inline-block;
     margin-bottom: 100;
   }
+
+  .card {
+    width: 20rem;
+    margin-bottom: 20px;
+  }
 }
 
 @media screen and (min-width:760px) {
@@ -83,5 +88,10 @@ dl.searchbox dd{
   background-color:#fff;
   border:1px solid #aaa;
   border-radius:6px;
+  }
+
+  .card {
+    width: 35rem;
+    margin-bottom: 20px;
   }
 }

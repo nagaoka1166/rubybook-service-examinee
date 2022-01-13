@@ -24,11 +24,8 @@ Rails.application.routes.draw do
   resources :entries, only: [:new, :create]
   resources :stundents
   resources :researchers
-
-  Rails.application.routes.draw do
-    resources :posts do
-      resource :likes, only: [:show, :create, :destroy]
-    end
+  resources :posts do
+    resource :likes, only: [:show, :create, :destroy]
   end
   post 'like/:id' => 'likes#create', as: 'create_like'
   delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
