@@ -20,7 +20,6 @@ class EntriesController < ApplicationController
             ContactMailer.request_email(@post, @user).deliver_now
             flash[:info] = "「#{@post.title}」への参加手続きが完了いたしました"
             redirect_to posts_path
-            # redirect_to @post, notice: "「#{@post.title}」への参加手続きが完了いたしました"
         else
             render :new
         end

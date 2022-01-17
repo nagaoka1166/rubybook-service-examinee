@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_out_path_for(resource)
     new_user_session_path
+    # flash[:info] = "ログアウトしました!!"
     # ログアウト後に遷移するpathを設定
   end
     protected  #メソッドのスコープを小さくするもの

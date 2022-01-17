@@ -1,46 +1,52 @@
 - content_for :css do
     =stylesheet_link_tag '/assets/posts/show'
-%h1 ユーザの詳細
+%h1.topstyle    実験詳細
 
 
 .row
     .col-md-1.col-sm-2
+
     .col-md-7.col-sm-8.mx-auto
-        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+        .card.bg-light.roundeds{style: "margin-bottom: 20px; margin-left: 25px;"}
             .card-body{style: "height: 50px;"}
                 %p.font-weight-bold タイトル
             .card-footer.bg-white{style: "height: 100px;"}
                 = @post.title
-        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+        .card.bg-light.roundeds{style: "margin-bottom: 20px; margin-left: 25px;"}
             .card-body{style: "height: 50px;"}
                 %p.font-weight-bold 実験内容
             .card-footer.bg-white{style: "height: 100px;"}
                 = @post.description
-        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+        .card.bg-light.roundeds{style: "margin-bottom: 20px; margin-left: 25px;"}
             .card-body{style: "height: 50px;"}
                 %p.font-weight-bold 参加条件
             .card-footer.bg-white{style: "height: 100px;"}
                 = @post.restriction
-        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;  margin-left: 25px;"}
             .card-body{style: "height: 50px;"}
                 %p.font-weight-bold 持ち物
             .card-footer.bg-white{style: "height: 100px;"}
                 = @post.item
-        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;  margin-left: 25px;"}
             .card-body{style: "height: 50px;"}
                 %p.font-weight-bold 集合場所
             .card-footer.bg-white{style: "height: 100px;"}
                 = @post.testing_field
-        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;  margin-left: 25px;"}
             .card-body{style: "height: 50px;"}
                 %p.font-weight-bold 実験期間
             .card-footer.bg-white{style: "height: 100px;"}
                 = @post.experment_period
-        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;  margin-left: 25px;"}
             .card-body{style: "height: 50px;"}
-                %p.font-weight-bold 募集期間
+                %p.font-weight-bold 募集期限
             .card-footer.bg-white{style: "height: 100px;"}
                 = @post.recruitment_period
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;  margin-left: 25px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 謝礼
+            .card-footer.bg-white{style: "height: 100px;"}
+                = @post.reward
     .col-sm-1
     .col-md-3.col-sm-3
         - if @post.user_id == current_user.id

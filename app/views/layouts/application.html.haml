@@ -57,7 +57,7 @@
                     %i.fas.fa-sign-in-alt.icon
                     ログイン
     - flash.each do |key, value|
-      %div{class: "alert alert-#{key} mx-auto }alert-dismissible fade.show", role: "alert"}
+      %div{class: "alert alert-dark mx-auto} alert-dismissible fade.show", role: "alert"}
         = value
         %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "alert", type: "button"}
     = render partial: 'layouts/flash'
