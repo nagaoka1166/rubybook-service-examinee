@@ -2,9 +2,11 @@
 html {
     overflow-y: scroll;
   }
+
   body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
-    margin: 0;
+    margin: 0 0 0 0;
     padding: 0;
+
   }
   address,caption,cite,code,dfn,em,strong,th,var {
     font-style: normal;
@@ -69,10 +71,14 @@ html {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
-  @media only screen and (min-width: 769px) {
+  @media only screen and (min-width: 750px) {
     .box_con05 form ul li {
       display: -webkit-flex;
       display: flex;
+    }
+
+    .box_det {
+      margin-top: 20px;
     }
   }
   @media print {
