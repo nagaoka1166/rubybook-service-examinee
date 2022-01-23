@@ -8,6 +8,10 @@
     %br/
     = f.text_area :description, raw: 5, class:'form-control', id: 'post_description'
   .form-group
+    = f.label :restriction
+    %br/
+    = f.text_area :restriction, raw: 3, class:'form-control', id: 'post_restriction'
+  .form-group
     = f.label :caution
     %br/
     = f.text_field :caution,  raw: 3, class:'form-control', id: 'post_caution'

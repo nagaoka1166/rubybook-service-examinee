@@ -16,14 +16,30 @@
             = link_to "パスワードを忘れた場合", new_user_password_path
         = f.password_field :password, autocomplete: "current-password"
       .box-login
-        = f.submit "ログイン"
         .legal-text
           続行することで、Hogezonの
-          \#{link_to "利用規約", "#"}
-          および
-          \#{link_to "プライバシー規約", "#"}
+          \#{link_to "利用規約", ""}
           に同意するものとみなされます。
         - if devise_mapping.rememberable?
           .remember
             = f.check_box :remember_me
             = f.label :remember, "ログインしたままにする"
+        = f.submit "ログイン"
+.box__student
+  .box-inner_sub
+    %b
+      %big 学生版テストアカウント
+    %br/
+    Eメール:  test1@ed.ritsumei.ac.jp
+    %br/
+    パスワード: aaaaaa
+    %br/
+
+.box__researcher
+  .box-inner
+    %b
+      %big 研究者版テストアカウント
+    %br/
+    Eメール:  test2@ed.ritsumei.ac.jp
+    %br/
+    パスワード: aaaaaa

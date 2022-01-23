@@ -22,6 +22,7 @@
                             募集中
                         -else
                             募集停止
-                        .card-like
-                            %div{id: "post_#{post.id}"}
-                                = render 'post', post: post
+                        - if user_signed_in?
+                            .card-like
+                                %div{id: "post_#{post.id}"}
+                                    = render 'post', post: post

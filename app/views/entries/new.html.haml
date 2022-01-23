@@ -40,9 +40,9 @@
             %h4 プライバシー
             %p.txt プライバシープライバシープライバシープライバシープライバシープライバシープライバシープライバシー
       .box_check
-        %label
-          %input.agree{"aria-invalid" => "false", name: "acceptance-714", type: "checkbox", value: "1"}/
-          %span.check プライバシーポリシーに同意する
+        ％label
+        %input{name: "terms", required: "", type: "checkbox", value: "accept"}/
+        プライバシーポリシーに同意する
       %p.btn
         %span
           =f.submit '送信', class: 'btn-default'

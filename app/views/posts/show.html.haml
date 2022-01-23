@@ -52,6 +52,6 @@
         - if @post.user_id == current_user.id
             = link_to '編集', edit_post_path, class: 'edit shadow w-50 btn btn-primary btn-lg btn-block ', style: "margin-bottom: 10px;"
             = link_to '削除', @post, method: :delete, data: { confirm: "ユーザ「#{@post.title}」を削除します。一件でも応募があれば削除ができません。" }, class: 'shadow w-50 btn btn-success btn-lg btn-block'
-        - if @post.is_active == true && @post.recruitment_period > Date.today && @post.user_id != current_user.id
+        - if @post.is_active == true && @post.recruitment_period > Date.today && current_user.content_type == 1
             = link_to '応募する', new_entry_path(post_id: @post.id), class: 'btn btn--orange btn--cubic btn--shadow btn-lg btn-block w-50'
 
