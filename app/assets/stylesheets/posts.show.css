@@ -1,55 +1,52 @@
-
 a.btn--orange {
-    color: #fff;
-    background-color: #2da3c0;
-    border-bottom: 5px solid #0594c0;
+  color: #fff;
+  background-color: #2da3c0;
+  border-bottom: 5px solid #0594c0;
+}
+a.btn--orange:hover {
+  margin-top: 3px;
+  color: #fff;
+  background: #2da3c0;
+  border-bottom: 2px solid #0594c0;
+}
+a.btn--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+
+@media screen and (max-width:390px) {
+  /*　画面サイズが800pxからはここを読み込む　*/
+  .col-sm-3{
+      max-width: 736px;
+      margin-left: 10%;
+      }
+  .col-md-7{
+      mx-auto: 0
   }
-  a.btn--orange:hover {
-    margin-top: 3px;
-    color: #fff;
-    background: #2da3c0;
-    border-bottom: 2px solid #0594c0;
+  .nav { 
+    width: 100%;
   }
-  a.btn--shadow {
-    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  .topstyle {
+    margin-right: 100px
   }
+  /* .col-md-7.col-sm-8.mx-auto {
+    margin-left: 50px;
+    padding-left: 30px;
+  } */
 
-  @media screen and (max-width:390px) {
-    /*　画面サイズが800pxからはここを読み込む　*/
-    .col-sm-3{
-        max-width: 736px;
-        margin-left: 10%;
-        }
-    .col-md-7{
-        mx-auto: 0
-    }
-
-    .topstyle {
-      margin-right: 100px
-    }
-    /* .col-md-7.col-sm-8.mx-auto {
-      margin-left: 50px;
-      padding-left: 30px;
-    } */
-  
-  
-  }
-
-  @media screen and (max-width:1200px) {
-    /*　画面サイズが800pxからはここを読み込む　*/
-    .topstyle {
-      margin-left: 130px;
-
-    }
-
-    .col-sm-3{
-        max-width: 736px;
-        margin-left: 20%;
-        }
 
 }
 
-  
-  
-  
+@media screen and (max-width:1200px) {
+  /*　画面サイズが800pxからはここを読み込む　*/
+  .topstyle {
+    margin-left: 130px;
+
+  }
+
+  .col-sm-3{
+      max-width: 736px;
+      margin-left: 20%;
+      }
+
+}

@@ -1,7 +1,7 @@
 - content_for :css do
   =stylesheet_link_tag 'sign_in'
-.box__signin
-  .box-inner
+#box.box__signin
+  #sign_in.box-inner
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       %h1 ログイン
       .box-email
@@ -36,7 +36,7 @@
     %br/
 
 .box__researcher
-  .box-inner
+  .box-inner_sub
     %b
       %big 研究者版テストアカウント
     %br/
