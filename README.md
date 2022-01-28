@@ -1,6 +1,6 @@
 # Tesma
 ## URL 
-・[Tesma](http:///) 
+・[Tesma](http://52.192.34.200/) 
 
 
 
