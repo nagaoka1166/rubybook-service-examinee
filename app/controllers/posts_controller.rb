@@ -3,7 +3,6 @@ class PostsController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :edit, :destroy, :show]
 
     def index
-        console
         @q =  Post.all.order(created_at: :desc).all.ransack(params[:q])
         @posts = @q.result(distinct: true).page(params[:page]).per(10)
         @like = Like.new
