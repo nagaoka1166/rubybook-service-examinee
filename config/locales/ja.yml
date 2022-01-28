@@ -24,14 +24,14 @@ ja:
     post:
     id: ID
     title: タイトル
-    description: 詳しい説明
+    description: 実験内容
     caution: 注意事項
-    restriction: 応募条件
+    restriction: 参加条件
     testing_field: 実験場所/集合場所
     faculty: 所属学部・研究室
     experment_period: 実験期間
     recruitment_period: 募集期間
-    item: 募集状況
+    item: 持ち物
     reward: 謝礼
     rabo: 研究室名
     is_active: 募集状況
