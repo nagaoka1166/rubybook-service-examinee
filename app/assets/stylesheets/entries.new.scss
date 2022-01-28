@@ -71,6 +71,10 @@ html {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
+
+  .btn-default { 
+    margin-left: 100px;
+    }
   @media only screen and (min-width: 750px) {
     .box_con05 form ul li {
       display: -webkit-flex;
@@ -98,6 +102,7 @@ html {
     padding: 1em;
     position: relative;
   }
+
   @media only screen and (min-width: 769px) {
     .box_con05 form ul li .title {
       display: -webkit-flex;
@@ -141,6 +146,8 @@ html {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
+
+
   @media only screen and (max-width: 768px) {
     .box_con05 form ul li .box_det {
       display: block;
@@ -310,4 +317,30 @@ html {
     input[type="text"] {
         width: 630px;
     }
+}
+
+@media screen and (min-width:300px) {
+  ul.formTable{ 
+    margin-left: 12px;
+    }
+  .con_pri {
+    margin-left: 12px;
+  }
+  .box_check {
+    margin-left: 12px;
+  }
+  }
+
+@media screen and (min-width:670px) {
+.btn-default { 
+  margin-top: 30px;
+  margin-left: 330px;
+  }
+
+  .con_pri {
+    margin-top: 30px;
+    margin-left: 60px;
+  }
+
+
 }

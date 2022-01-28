@@ -3,9 +3,12 @@
   background-color: #fbfdfc;
 }
 
-.card {
+/* .index.card {
   width: 20rem;
   margin-bottom: 20px;
+} */
+.active{
+background-color: #ededed;
 }
 
 .reaction {
@@ -79,8 +82,8 @@ dl.searchbox dd{
     margin-bottom: 100;
   }
 
-  .card {
-    width: 20rem;
+  .index.card {
+    width: 30rem;
     margin-bottom: 20px;
   }
 }
@@ -95,8 +98,25 @@ dl.searchbox dd{
   border-radius:6px;
   }
 
-  .card {
+  .index.card {
     width: 35rem;
     margin-bottom: 20px;
   }
 }
+
+.active{
+  border-radius: 4px;
+  background: #ededed;
+  padding: 2px 10px;
+  font-weight: 700;
+  margin-right: 8px;
+  }
+
+  .not-active{
+    border-radius: 4px;
+    background: #ededed;
+    padding: 2px 10px;
+    font-weight: 700;
+    margin-right: 8px;
+    color: #e04c11;
+    }

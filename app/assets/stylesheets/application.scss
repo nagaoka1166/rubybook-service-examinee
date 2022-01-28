@@ -15,7 +15,13 @@
  */
  @media screen and (min-width:300px) {
   nav {
-    // width: 570px;
+   width: 450px;
+   min-width: 500px;
+  }
+
+  body {
+    min-width: 500px;
+    margin: 0 auto;
   }
 
  }
@@ -24,6 +30,10 @@
  @media screen and (min-width:560px) {
   nav {
     width: 100%;
+  }
+
+  nav {
+    max-width: 1600px;
   }
 
  }
@@ -47,6 +57,10 @@
     color: #76838f;
     margin-right: 45px;
   }
+
+.card.mx-auto{
+  width: 600
+}
  
 
 @import "bootstrap";

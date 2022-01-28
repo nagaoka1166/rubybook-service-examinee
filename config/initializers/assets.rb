@@ -9,13 +9,24 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w(
+    application.scss
+    entries.scss
+    entries.new.scss
+    falsh.scss
+    registrations.edit.scss
+    researchers.scss
+    sign_in.scss
+    sign_up.scss
+    student.scss
+    users.scss
     style.css
     common/*
     partial/*
+    posts.scss
     posts/index.css
     posts/new.css
     posts/show.css
-    edit
+    posts/edit.css
     sign_in
  )
 
