@@ -131,4 +131,27 @@
 
   .btn-text{
     color: whitesmoke;
+    margin-bottom: 10px;
+  }
+
+  .box__student{
+    width: 370px;
+    height: 100px;
+    margin: 50px auto 0;
+    border-radius: 4px;
+    border: 1px #ddd solid;
+    background-color: white;
+  }
+  
+  .box__researcher{
+    width: 370px;
+    height: 100px;
+    margin: 20px auto 0;
+    border-radius: 4px;
+    border: 1px #ddd solid;
+    background-color: white;
+  }
+  
+  .box-inner_sub {
+    padding: 20px 26px;
   }
