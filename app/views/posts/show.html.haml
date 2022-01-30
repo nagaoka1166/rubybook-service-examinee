@@ -24,6 +24,11 @@
                 = simple_format(@post.restriction)
         .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
             .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 注意事項
+            .card-footer.bg-white{style: "height: 130px;"}
+                = simple_format(@post.caution)
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
                 %p.font-weight-bold 持ち物
             .card-footer.bg-white{style: "height: 120px;"}
                 = simple_format(@post.item)
