@@ -3,7 +3,9 @@
 #box.box__signin
   #sign_in.box-inner
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      %h1 ログイン
+      %h1
+        %big.main-text
+          ログイン
       .box-email
         = f.label :email, "Eメール"
         %br/
@@ -24,11 +26,11 @@
           .remember
             = f.check_box :remember_me
             = f.label :remember, "ログインしたままにする"
-        = f.submit "ログイン"
+        = f.submit "ログイン", class: "btn-text"
 .box__student
   .box-inner_sub
     %b
-      %big 学生版テストアカウント
+      %big.main-text 学生版テストアカウント
     %br/
     Eメール:  test1@ed.ritsumei.ac.jp
     %br/
@@ -38,7 +40,7 @@
 .box__researcher
   .box-inner_sub
     %b
-      %big 研究者版テストアカウント
+      %big.main-text 研究者版テストアカウント
     %br/
     Eメール:  test2@ed.ritsumei.ac.jp
     %br/

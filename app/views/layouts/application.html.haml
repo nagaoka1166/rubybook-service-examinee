@@ -12,9 +12,11 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %header
-      %nav.navbar.navbar-expand-lg.navbar-light{style: "background-color: #D9E5FF"}
+      %nav.navbar.navbar-expand-lg.navbar-light{style: "background-color: #fff"}
         .container-fluid
-          = link_to "Tesma", posts_path, class: "navbar-brand"
+          %b
+            %big
+              = link_to "Tesma", posts_path, class: "navbar-brand", style: 'color: #448db3;'
           %button.navbar-toggler{"aria-controls" => "navbarScroll", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarScroll", "data-bs-toggle" => "collapse", type: "button"}
             %span.navbar-toggler-icon
           #navbarScroll.collapse.navbar-collapse

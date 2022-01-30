@@ -4,7 +4,7 @@
   .box_inner
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = render "devise/shared/error_messages", resource: resource
-      %h1 アカウント登録
+      %h1.main-textアカウント登録
       .box-name
         = f.label :name
         %br/
@@ -51,9 +51,8 @@
           = s.label :grade
           %br/
           = s.select :grade, Student.grades.keys.map {|k| [I18n.t("enums.student.grades.#{k}"), k]}, include_blank: "-------"
-      .box-signup
+      .box-login
         .actions
-        = f.submit "アカウント登録"
+        = f.submit "アカウント登録", class: "btn-text"
       .box-newusr
         = link_to "ログイン画面へ", user_session_path
-
