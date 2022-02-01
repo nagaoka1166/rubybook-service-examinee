@@ -2,23 +2,26 @@
     = stylesheet_link_tag '/posts/index'
 
 %h1.text-center 応募履歴
-- current_user.like_posts.each do |post|
-    .card.mx-auto
-        .card-body{style: "width: 400px;"}
-            .card-title
-                = link_to "#{post.title}", post
-            .card-description
-                = truncate(post.description, length: 90)
-            .reaction
-                -if post.is_active == true && post.recruitment_period > Date.today
-                    募集中
-                -else
-                    募集停止
-                .card-like
-                    %div{id: "post_#{post.id}"}
-                        - if current_user.liked_by?(post.id)
-                            = link_to "外す", destroy_like_path(post), class: "like-link", method: :delete, remote: true
-                            %i.fa.fa-heart.unlike-btn
-                        - else
-                            = link_to "後で見る", create_like_path(post), class: "like-link", method: :post, remote: true
-                            %i.fa.fa-heart.like-btn
+
+%table.table.table-hover
+    %thead.thead-default
+        - current_user.entry_posts.each do |post|
+            .index.card.mx-auto{style: "width: 500px;""margin-bottom: 20px;"}
+                .card-body
+                    .card-title
+                        = link_to "#{post.title}", post
+                    .card-description
+                        = truncate(post.description, length: 90)
+                    .reaction
+                        -if post.is_active == true && post.recruitment_period > Date.today
+                            .active 募集中
+                        -else
+                            .not-active 募集停止
+                            .card-like
+                                %div{id: "post_#{post.id}"}
+                                    - if current_user.liked_by?(post.id)
+                                        = link_to  destroy_like_path(post), class: "like-link", method: :delete, remote: true do
+                                            %i.fa.fa-heart.unlike-btn
+                                    - else
+                                        = link_to create_like_path(post), class: "like-link", method: :post, remote: true do
+                                            %i.fa.fa-heart.like-btn
