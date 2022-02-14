@@ -14,6 +14,11 @@
                 = simple_format(@post.title)
         .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
             .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 研究者情報
+            .card-footer.bg-white{style: "height: 110px;"}
+                = simple_format(@post.rabo)
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
                 %p.font-weight-bold 実験内容
             .card-footer.bg-white{style: "height: 130px;"}
                 = simple_format(@post.description)

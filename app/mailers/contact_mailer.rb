@@ -8,7 +8,7 @@ class ContactMailer < ApplicationMailer
       @post = post
       @researcher = @post.user
     mail(
-      from: 'taskleaf@aaa.com',
+      from: @user.email,
       to: @researcher.email,
       subject: 'Test')
     end

@@ -4,6 +4,10 @@
     %br/
     = f.text_field :title, raw: 3, class:'form-control', id: 'post_title'
   .form-group
+    = f.label :rabo
+    %br/
+    = f.text_area :研究者情報, raw: 3, class:'form-control', id: 'post_rabo', placeholder: '研究者名・研究者の外部リンクなど'
+  .form-group
     = f.label :description
     %br/
     = f.text_area :description, raw: 5, class:'form-control', id: 'post_description'
