@@ -1,6 +1,6 @@
 # Tesma
 ## URL 
-・[Tesma](http://52.192.34.200/) 
+・[Tesma](http://tesma.jp/) 
 
 https://user-images.githubusercontent.com/69971830/151587121-25c9f655-cd47-4a12-a397-c59c37b65be7.mp4
 
