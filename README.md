@@ -1,6 +1,6 @@
 # Tesma
 ## URL 
-・[Tesma](http://tesma.jp/) (現在ドメイン移行に伴いアプリ停止中)
+・[Tesma](http://tesma.jp/) (現在ドメイン移行に伴いアプリ停止中 2022/9月19日)
 
 https://user-images.githubusercontent.com/69971830/151587121-25c9f655-cd47-4a12-a397-c59c37b65be7.mp4
 
