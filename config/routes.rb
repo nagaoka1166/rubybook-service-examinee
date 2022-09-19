@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
+  get 'static_pages/terms'
   root 'posts#index'
-#   devise_for :users, controllers: {
-#   registrations: 'users/registrations',
-#   sessions     : 'users/sessions'
-# }
 # deviceのregistrations宛にリクエストがきた場合に、代わりにuserscontrollerのregistrationを動かす
   devise_for :users, :controllers => {
     :registrations => 'users/registrations'} do
