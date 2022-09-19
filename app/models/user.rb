@@ -10,9 +10,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :student
   validates :name, presence: true
   validates :faculty, presence: true
-  # VALID_EMAIL_REGEX = /.*@ed.ritsumei.ac.jp/
-  # validates :email, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX, message: "有効なメールアドレスをご入力ください。"}, if: :email?
-  validates :email,  presence: true
+  VALID_EMAIL_REGEX = /.*@ed.ritsumei.ac.jp/
+  validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX, message: "有効なメールアドレスをご入力ください。"}, if: :email?
   validates :content_type, presence: true
   validates :password, presence: true, confirmation: true
   validates :password_confirmation, presence: true
