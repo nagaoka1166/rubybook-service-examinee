@@ -73,3 +73,4 @@ gem 'ransack'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'font-awesome-sass'
+gem 'aws-sdk-rails', '~> 3.6', '>= 3.6.1'
