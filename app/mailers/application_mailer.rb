@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'noreply@tesma.jp'
   layout 'mailer'
 
 #   def accept_email(post)
