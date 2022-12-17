@@ -61,7 +61,7 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  # Raises error for missing translations.
+  # Raiseis error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
   # Annotate rendered view with file names.
@@ -74,6 +74,16 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
+  config.action_mailer.default_url_options = {  host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    domain: 'gmail.com',
+    port: 587,
+    user_name: Rails.application.credentials.gmail[:user_name],  #Gmailアドレス（credentials.yml.encに記載）
+    password: Rails.application.credentials.gmail[:password],  #アプリパスワード（credentials.yml.encに記載）
+    authentication: :login
+  }
   #https://qiita.com/cigalecigales/items/16ce0a9a7e79b9c3974e#1-%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88url%E3%81%AE%E6%8C%87%E5%AE%9A
   #パスワードの再設定する場合、再確認する場合に必要
   #devise導入時に記述
