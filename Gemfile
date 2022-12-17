@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
@@ -52,6 +52,25 @@ group :test do
   gem 'webdrivers'
 end
 
+group :production do
+  gem 'unicorn', '5.4.1'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
+gem 'haml-rails'
+gem 'erb2haml'
+gem 'bootstrap'
+gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'jquery-rails'
+gem 'devise-bootstrap-views', '~> 1.0'
+gem 'enum_help'
+gem 'kaminari'
+gem 'pry-rails'
+gem 'ransack'
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'font-awesome-sass'
+gem 'aws-sdk-rails', '~> 3.6', '>= 3.6.1'

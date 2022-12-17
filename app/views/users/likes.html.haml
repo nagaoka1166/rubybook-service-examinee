@@ -1,0 +1,26 @@
+
+%h1.text-center お気に入り
+
+%table.table.table-hover
+    %thead.thead-default
+        - current_user.like_posts.each do |post|
+            .card.mx-auto{style: "width: 550px;" "margin-bottom: 20px;"}
+                .card-body
+                    .card-title
+                        = link_to "#{post.title}", post
+                    .card-description
+                        = truncate(post.description, length: 90)
+                    .reaction
+                        -if post.is_active == true && post.recruitment_period > Date.today
+                            .active 募集中
+                        -else
+                            .not-active 募集停止
+                        .card-like
+                            %div{id: "post_#{post.id}"}
+                                .card-like
+                                    - if current_user.liked_by?(post.id)
+                                        = link_to  destroy_like_path(post), class: "like-link", method: :delete, remote: true do
+                                            %i.fa.fa-heart.unlike-btn
+                                    - else
+                                        = link_to create_like_path(post), class: "like-link", method: :post, remote: true do
+                                            %i.fa.fa-heart.like-btn

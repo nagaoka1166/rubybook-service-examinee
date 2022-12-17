@@ -1,0 +1,67 @@
+- content_for :css do
+    = stylesheet_link_tag '/assets/posts/show', media: 'all', 'data-turbolinks-track': 'reload'
+%h1.topstyle    実験詳細
+
+
+.row
+    .col-md-1.col-sm-2
+
+    .col-md-7.col-sm-8.mx-auto
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold タイトル
+            .card-footer.bg-white{style: "height: 110px;"}
+                = simple_format(@post.title)
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 研究者情報
+            .card-footer.bg-white{style: "height: 110px;"}
+                = simple_format(@post.rabo)
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 実験内容
+            .card-footer.bg-white{style: "height: 130px;"}
+                = simple_format(@post.description)
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 参加条件
+            .card-footer.bg-white{style: "height: 130px;"}
+                = simple_format(@post.restriction)
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 注意事項
+            .card-footer.bg-white{style: "height: 130px;"}
+                = simple_format(@post.caution)
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 持ち物
+            .card-footer.bg-white{style: "height: 120px;"}
+                = simple_format(@post.item)
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 集合場所
+            .card-footer.bg-white{style: "height: 120px;"}
+                = simple_format(@post.testing_field)
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 実験期間
+            .card-footer.bg-white{style: "height: 120px;"}
+                = simple_format(@post.experment_period)
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 募集期限
+            .card-footer.bg-white{style: "height: 120px;"}
+                = @post.recruitment_period
+        .card.bg-light.roundeds{style: "margin-bottom: 20px;"}
+            .card-body{style: "height: 50px;"}
+                %p.font-weight-bold 謝礼
+            .card-footer.bg-white{style: "height: 120px;"}
+                = simple_format(@post.reward)
+    .col-sm-1
+    .block
+        - if @post.user_id == current_user.id
+            = link_to '編集', edit_post_path, class: 'edit shadow w-50 btn btn-primary btn-lg btn-block ', style: "margin-bottom: 10px;"
+            = link_to '削除', @post, method: :delete, data: { confirm: "ユーザ「#{@post.title}」を削除します。一件でも応募があれば削除ができません。" }, class: 'shadow w-50 btn btn-success btn-lg btn-block'
+        - if @post.is_active == true && @post.recruitment_period > Date.today && current_user.content_type == 1
+            = link_to '応募する', new_entry_path(post_id: @post.id), class: 'btn btn--orange btn--cubic btn--shadow btn-lg btn-block w-50'
+

@@ -1,0 +1,218 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+}
+
+.box_inner {
+  background-color: white;
+}
+.box {
+  width: 360px;
+  height: 680px;
+  margin: 50px auto 0;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+}
+
+#box.box__signin{
+  width: 370px;
+  height: 370px;
+  margin: 60px auto 0;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+  background-color: white;
+}
+
+#sign_in.box-inner {
+  padding: 20px 26px;
+  background-color: white;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+  color: #111111;
+  margin-left: 24px;
+  padding-top: 14px;
+}
+
+.box-name {
+  margin-bottom: 5px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.box-email {
+  margin-bottom: 5px;
+  margin-left: 24px;
+  margin-right: 24px;
+  background-color: white;
+}
+
+.box-faculty {
+  margin-bottom: 11px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+/* 学年カラムと学部カラムのセレクトボックス幅 */
+.box-faculty select, .box-grade select {
+  width: 100%;
+}
+
+.box-password {
+  margin-bottom: 11px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.box-password-confirmation {
+  margin-bottom: 20px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+
+
+.box-sex {
+  margin-bottom: 11px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.box-content_type {
+  margin-bottom: 11px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.box-grade {
+  margin-bottom: 11px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.box-email label, .box-password label, .box-name label, .box-password-confirmation label, .box-faculty label, .box-sex label, .box-grade label, .box-content_type label, .box-current_password label{
+  font-weight: 700;
+  font-size: 13px;
+  padding-left: 2px;
+  padding-bottom: 2px;
+}
+
+.box-current_password {
+  margin-bottom: 20px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.box-name input[type="text"]{
+  border-style: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 31px;
+  border: 1px solid #a6a6a6;
+  box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;
+  border-radius: 3px;
+  padding: 0 7px;
+}
+
+.box-email input[type="email"], .box-password input[type="text"], .box-faculty input[type="select"], .box-password-confirmation input[type="text"] .box-current_password input[type="text"]{
+  border-style: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 31px;
+  border: 1px solid #a6a6a6;
+  box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;
+  border-radius: 3px;
+  padding: 0 7px;
+}
+
+
+.box-password a {
+  font-size: 13px;
+}
+
+.box-password-confirmation{
+  font-size: 13px;
+}
+
+.box-signup {
+  margin-bottom: 10px;
+}
+
+.box-signup input[type="submit"] {
+  border-style: none;
+  width: 100%;
+  height: 31px;
+  background: linear-gradient(to bottom,#11e2d1ce,#17c8df);
+  border-radius: 3px;
+  border: 1px #24e4eb solid;
+}
+
+.box-signup input[type="submit"]:hover {
+  cursor: pointer;
+  background: #2191ec;
+}
+
+.legal-text {
+  margin-top: 5px;
+  font-size: 12px;
+  margin-left: 24px;
+}
+
+
+.box-newusr p {
+  text-align: center;
+  font-size: 12px;
+  color: #767676;
+  margin-bottom: 14px;
+}
+
+.box-newusr p span {
+  text-decoration: line-through;
+  text-decoration-color: #e7e7e7;
+}
+
+.box-newusr a {
+  display: block;
+  width: 100%;
+  height: 31px;
+  font-size: 13px;
+  color: #111;
+  line-height: 31px;
+  text-align: center;
+  background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+  border-radius: 3px;
+  border: 1px #a2a6ac solid;
+}
+
+.box-newusr a:hover {
+  background: #e7e9ec;
+}
+
+
+.box__student{
+  width: 370px;
+  height: 100px;
+  margin: 50px auto 0;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+  background-color: white;
+}
+
+.box__researcher{
+  width: 370px;
+  height: 100px;
+  margin: 20px auto 0;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+  background-color: white;
+}
+
+.box-inner_sub {
+  padding: 20px 26px;
+}

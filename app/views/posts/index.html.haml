@@ -1,0 +1,30 @@
+- content_for :css do
+    = stylesheet_link_tag '/posts/index'
+    = stylesheet_link_tag 'posts', media: 'all', 'data-turbolinks-track': 'reload'
+%dl.searchbox.mx-auto
+    = search_form_for @q, class: "" do |f|
+        %dt= f.text_field :title_cont ,placeholder: '検索するテキストを入力...'
+        %dd= f.submit ("検索") , class: 'search-btn'
+
+%table.table.table-hover
+    %thead.thead-default
+        - @posts.each do |post|
+            .index.card.mx-auto
+                .card-body
+                    .card-title
+                        = link_to "#{post.title}", post
+                    .card-description
+                        = truncate(post.description, length: 90)
+                    .reaction
+                        -if post.is_active == true && post.recruitment_period > Date.today
+                            .active 募集中
+                        -else
+                            .not-active 募集停止
+                        - if user_signed_in?
+                            .card-like
+                                %div{id: "post_#{post.id}"}
+                                    = render 'post', post: post
+
+.pagenate
+    = paginate @posts
+    = page_entries_info @posts

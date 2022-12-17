@@ -1,0 +1,36 @@
+!!!
+%html{lang: "ja"}
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{charset: "UTF-8"}/
+    %link{crossorigin: "anonymous", href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", integrity: "sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", rel: "stylesheet"}/
+    %link{crossorigin: "anonymous", href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css", integrity: "sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r", rel: "stylesheet"}/
+  %body
+    .container
+      .navbar
+        %h1 応募フォーム
+      %form.form-horizontal
+      %p 名前: #{current_user.name}, placeholder :
+      %p メールアドレス: #{current_user.email}
+= form_with model: @entry do |f|
+  .form-group
+    = f.hidden_field :post_id, value:params[:post_id]
+  .form-group
+  %br/
+  .form-group
+  %br
+    = f.label :電話番号, class:'col-sm-2.control-label'
+    %span.label.label-danger 必須
+  .col-sm-10
+    = f.text_field :phone, class: 'form-control', placeholder: '例: 090-XXX-XXX', required: '', type: 'text'
+  .form-group
+  %br
+    = f.label :年齢, class:'col-sm-2.control-label'
+    %span.label.label-danger 必須
+  .col-sm-10
+    = f.number_field :age, class: 'form-control', required: ''
+  %br
+  .form-group
+  %br
+    .col-sm-offset-0.col-sm-10
+      =f.submit '送信', class: 'btn-default'

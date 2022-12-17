@@ -1,0 +1,50 @@
+- content_for :css do
+  = stylesheet_link_tag '/assets/registrations/edit'
+.box_edit
+  .box_inner
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = render "users/shared/error_messages", resource: resource
+      %h2 プロフィール情報変更
+      .box-email
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", :value => "@ed.ritsumei.ac.jp"
+      .box-faculty
+        = f.label :faculty
+        %br/
+        = f.select :faculty, User.faculties.keys.map {|k| [I18n.t("enums.user.faculties.#{k}"), k]}, include_blank: "-------"
+      .box-password
+        = f.label :password
+        %br/
+        = f.text_field :password, autocomplete: "new-password"
+        - if @minimum_password_length
+          %br/
+          %em
+          = @minimum_password_length
+          characters minimum
+        = f.label :password
+      .box-password-confirmation
+        = f.label :password_confirmation
+        %br/
+        = f.text_field :password_confirmation, autocomplete: "new-password"
+      .box-current_password
+        = f.label :current_password
+        %i (パスワードを変更するためには現在のパスワードが必要です)
+        %br/
+        = f.text_field :current_password, autocomplete: "current-password"
+      = f.fields_for :student do |s|
+        - if current_user.content_type == 1
+          .box-grade
+            = s.hidden_field :user_id
+            = s.label :grade
+            %br/
+            = s.select :grade, Student.grades.keys.map {|k| [I18n.t("enums.student.grades.#{k}"), k]}
+      .box-update
+        .actions
+        = f.submit "更新"
+      = link_to "戻る", :back
+      %br/
+      -# アカウント削除機能は消す  method: :delete
+      = link_to "アカウント削除(機能停止中)", registration_path(resource_name), data: { confirm: "アカウント削除をすると今までのデータが全て消されてしまいます。よろしいでしょうか？" }
+
+

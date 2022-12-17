@@ -1,0 +1,5 @@
+%h2 投稿の編集
+/ 　integer型は実装していない
+= link_to  '一覧', posts_path, class: 'nav-link'
+
+= render partial: 'form', locals: { post: @post}

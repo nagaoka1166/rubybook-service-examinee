@@ -1,0 +1,14 @@
+%tbody
+    %h1.text-center 投稿履歴
+    - current_user.posts.each do |post|
+        .card.mx-auto{style: "width: 400px;"}
+            .card-body
+                .card-title
+                    = link_to "#{post.title}", post
+                .card-description
+                    = truncate(post.description, length: 90)
+                .reaction
+                    -if post.is_active == true && post.recruitment_period > Date.today
+                        .active 募集中
+                    -else
+                        .not-active 募集停止
