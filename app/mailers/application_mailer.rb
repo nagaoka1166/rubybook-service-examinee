@@ -1,5 +1,6 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreply@tesma.jp'
+  default from: Rails.application.credentials.gmail[:user_name]
+  #これいらない #default from: 'noreply@tesma.jp'
   layout 'mailer'
 
 #   def accept_email(post)
