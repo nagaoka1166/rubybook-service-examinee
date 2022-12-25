@@ -54,5 +54,6 @@
       .box-login
         .actions
         = f.submit "アカウント登録", class: "btn-text"
+      .cf-turnstile.mb-2{"data-callback" => "javascriptCallback", "data-controller" => "cloudflare-turnstile", "data-sitekey" => "0x4AAAAAAABqz1goocNdpqFx"}
       .box-newusr
         = link_to "ログイン画面へ", user_session_path

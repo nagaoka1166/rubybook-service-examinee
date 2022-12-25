@@ -26,26 +26,8 @@
           .remember
             = f.check_box :remember_me
             = f.label :remember, "ログインしたままにする"
+        /= cloudflare_turnstile
         = f.submit "ログイン", class: "btn-text"
-        = link_to "アカウント登録", new_user_registration_path
-.box__student
-  .box-inner_sub
-    %b
-      %big.main-text 学生版テストアカウント
-    %br/
-    Eメール:  test1@ed.ritsumei.ac.jp
-    %br/
-    パスワード: aaaaaa
-    %br/
-    %br/
+        = link_to "アカウント登録", new_user_registration_path, class: "signup-link"
+        /.cf-turnstile.mb-2{style: "style: margin-left: 15px", "data-callback" => "javascriptCallback", "data-controller" => "cloudflare-turnstile", "data-sitekey" => "0x4AAAAAAABqz1goocNdpqFx"}
 
-.box__researcher
-  .box-inner_sub
-    %b
-      %big.main-text 研究者版テストアカウント
-    %br/
-    Eメール:  test2@ed.ritsumei.ac.jp
-    %br/
-    パスワード: aaaaaa
-
-    %br/

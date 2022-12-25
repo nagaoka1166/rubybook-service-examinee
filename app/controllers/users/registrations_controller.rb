@@ -1,15 +1,15 @@
 # frozen_string_literal: true
-
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
   before_action :authenticate_user!
+  prepend_before_action :validate_cloudflare_turnstile, only: [:create]
 
   # GET /resource/sign_up
   def new
     # super
-    @user = User.new #ココのコメントアウト外すとform_forのエラーがなくなる。
-    @user.build_student
+      @user = User.new #ココのコメントアウト外すとform_forのエラーがなくなる。
+      @user.build_student
   end
 
   # POST /resource
@@ -54,6 +54,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
     new_user_session_path # ログアウト後に遷移するpathを設定
   end
 
+  private
+  def validate_cloudflare_turnstile
+    validation = CloudflareTurnstile.validate(params[:"cf-turnstile-response"], request.remote_ip)
+    return if validation
+
+    self.resource = resource_class.new sign_up_params
+    resource.validate
+    set_minimum_password_length
+    respond_with_navigational(resource) { render :new }
+  end
   protected
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params

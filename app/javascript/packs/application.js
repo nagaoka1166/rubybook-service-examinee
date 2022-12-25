@@ -7,6 +7,11 @@
 //= require popper
 //= require bootstrap-sprockets
 
+// document.addEventListener("turbo:load", function() {
+//   if (document.querySelector(".cf-turnstile") && window.turnstile) {
+//      window.turnstile.render(".cf-turnstile")
+//   }
+// })
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
