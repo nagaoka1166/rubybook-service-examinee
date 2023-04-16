@@ -1,6 +1,6 @@
 # Tesma
 ## URL 
-・[tesma](http://tesma.jp)
+・[tesma](http://tesma.jp)(デプロイ停止)
 
 https://user-images.githubusercontent.com/69971830/151587121-25c9f655-cd47-4a12-a397-c59c37b65be7.mp4
 
