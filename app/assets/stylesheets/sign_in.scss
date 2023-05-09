@@ -124,16 +124,25 @@
     border-radius: 3px;
     border: 1px #a2a6ac solid;
   }
-  
+
   .box-newusr a:hover {
     background: #e7e9ec;
   }
 
   .btn-text{
     color: whitesmoke;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
   }
 
+  .signup-link {
+    margin-bottom: 10;
+  }
+
+  .cf-turnstile {
+    margin-left: 10px;
+  }
+
+//テストアカウント マークアップ
   .box__student{
     width: 370px;
     height: 100px;
@@ -151,7 +160,31 @@
     border: 1px #ddd solid;
     background-color: white;
   }
-  
+  //  html
+//   .box__student
+//   .box-inner_sub
+//     %b
+//       %big.main-text 学生版テストアカウント
+//     %br/
+//     Eメール:  test1@ed.ritsumei.ac.jp
+//     %br/
+//     パスワード: aaaaaa
+//     %br/
+//     %br/
+
+// .box__researcher
+//   .box-inner_sub
+//     %b
+//       %big.main-text 研究者版テストアカウント
+//     %br/
+//     Eメール:  test2@ed.ritsumei.ac.jp
+//     %br/
+//     パスワード: aaaaaa
+
+//     %br/
+
+
   .box-inner_sub {
     padding: 20px 26px;
   }
+   
